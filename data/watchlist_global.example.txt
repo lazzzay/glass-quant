@@ -1,0 +1,19 @@
+# Watchlist for tools/catalyst_calendar.py (weekly earnings calendar). The shadow
+# scanners signals/momentum_breakout.py and signals/pead_scanner.py read the same
+# file by default (each prints a note and uses its own demo list without it).
+#
+# Copy this file to data/watchlist_global.txt and edit it: one Yahoo Finance
+# ticker per line, lines starting with # are ignored. data/watchlist_global.txt
+# is gitignored, so your own list stays local.
+#
+# Without data/watchlist_global.txt, catalyst_calendar.py uses the same built-in
+# list as below and says so in its report. The tickers are generic examples of large,
+# liquid US stocks, not a recommendation.
+AAPL
+MSFT
+NVDA
+GOOGL
+META
+JPM
+XOM
+UNH

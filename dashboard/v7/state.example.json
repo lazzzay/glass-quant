@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": null,
+  "kill_switch": "off",
+  "dd_level": 0,
+  "notes": "Template. tools/dashboard_api.py copies it to state.json (gitignored) on first run. dd_level: 0=OK, 3=-3% day review, 5=-5% pause, 8=-8% moratorium. Never put account values in here."
+}

@@ -1,0 +1,167 @@
+# daily-invest-oss .gitignore
+# Privacy first: secrets, journals, briefings, daily outputs and downloaded market
+# data never belong in the repository. Code, configs and docs do.
+
+# ---------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.mcp-venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# ---------------------------------------------------------------- OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+~$*
+.~lock.*
+.fuse_hidden*
+
+# ---------------------------------------------------------------- Secrets
+.env
+.env.*
+!.env.example
+tools/.env
+tools/.env.*
+!tools/.env.example
+*.secret
+*.pem
+*.key
+
+# ---------------------------------------------------------------- Personal trading data
+# Journal database (+ WAL/SHM/backups) and its CSV export: your full trade history.
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite.bak*
+*.db
+trade_journal_export.csv
+# Personal spreadsheets and documents (trackers, tax files)
+*.xlsx
+*.xls
+*.docx
+# Personal ticker exclusion list (copy config/blacklist.example.txt)
+config/blacklist.txt
+# Personal watchlist for tools/catalyst_calendar.py (copy data/watchlist_global.example.txt)
+data/watchlist_global.txt
+# Private ops logs
+ops_tickets.md
+ops_escalation.md
+ops_quota.md
+# Optional local scheduled-task prompts read by the dashboard
+scheduled-tasks/
+
+# ---------------------------------------------------------------- Generated outputs
+# Briefings and reports (daily candidates are NOT to be published)
+Briefings/
+briefings/
+Archiv/
+Archive/
+_archive/
+daily_scans/
+outputs/
+_runlogs/
+Meta/
+/Trading-Empfehlung-*.md
+/Tracking-*.md
+/*Market-Briefing-*.md
+/Daily-Briefing-*.md
+/Universe-Scan-Report-*.md
+/Premarket-Gap-Report-*.md
+/DevReport_*.md
+/V68-Weekly-Health-*.md
+/journal-metrics-*
+/Cohort-Report-*
+
+# signals/ holds code (*.py) plus run artifacts
+signals/*.json
+signals/*.md
+signals/*.csv
+
+# Shadow logs and simulation/sizing reports
+shadow/
+shadow_signals/
+sim/_reports/
+sizing/_shadow_logs/
+regime/_model_cache.json
+regime/hmm_regime_*.json
+
+# Backtest result folders (regenerable)
+backtest/results_*/
+
+# tools/: dated daily artifacts, caches, logs, locks and kill switch
+tools/*_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]*.json
+tools/*_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]*.csv
+tools/*_[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]*.md
+tools/*_[0-9][0-9][0-9][0-9]_w[0-9]*.json
+tools/*.manifest.json
+tools/*__RESCAN_*
+tools/scan_*.json
+tools/scan_*.csv
+tools/premarket_*.json
+tools/premarket_*.csv
+tools/earnings_*.json
+tools/earnings_*.csv
+tools/insider_*.json
+tools/options_flow_*.json
+tools/news_sentiment_*.json
+tools/_partial_*.json
+tools/_attempts_*.json
+tools/oi_cache.sqlite*
+tools/_logs/
+tools/_cache/
+tools/_sbxcache/
+tools/exec_bot.lock
+tools/EXEC_BOT_KILL
+tools/universe.generated.csv
+tools/universe.csv.*
+# launchd plist previews from install_launchd_crons.sh --dry-run (contain local paths)
+tools/_launchd_preview/
+
+# Root-level run artifacts (when a tool runs with the repo root as cwd)
+/regime_*.json
+/scan_*.json
+/scan_*.csv
+/credit_ampel_*.json
+/credit_ampel_history.csv
+/panel*.json
+
+# Dashboard runtime files (rewritten by tools/dashboard_api.py)
+# state.json is created from dashboard/v7/state.example.json on first run.
+dashboard/v7/state.json
+dashboard/v7/trades_snapshot.json
+dashboard/v7/heartbeat.json
+dashboard/v7/*.snapshot.json
+
+# ---------------------------------------------------------------- Market data
+# Downloaded/derived market data is subject to provider terms: never commit it.
+data_lake/
+lake/
+**/*.parquet
+**/*.arrow
+**/*.feather
+*.pkl
+.finbert_cache/
+
+# ---------------------------------------------------------------- Misc
+logs/
+*.log
+*.tmp
+*.bak
+*.bak_*
+*.backup

@@ -1,0 +1,640 @@
+ticker,name,tier,asset_class,region,sector,atr_multi_sl,atr_multi_tp,score_threshold
+NESN.SW,Nestle,A,eu_large,CH,Consumer/Food,1.7,2.55,7.5
+NOVN.SW,Novartis,A,eu_large,CH,Healthcare/Pharma,1.7,2.55,7.5
+ROG.SW,Roche,A,eu_large,CH,Healthcare/Pharma,1.7,2.55,7.5
+AIR.DE,Airbus,A,dax,DE,Aerospace/Defense,1.6,2.4,7.5
+ALV.DE,Allianz,A,dax,DE,Financial/Insurance,1.6,2.4,7.5
+DB1.DE,Deutsche Börse,A,dax,DE,Financial/Exchange,1.6,2.4,7.5
+DTE.DE,Deutsche Telekom,A,dax,DE,Telecom,1.6,2.4,7.5
+IFX.DE,Infineon,A,dax,DE,Tech/Semi,1.6,2.4,7.5
+MUV2.DE,Munich Re,A,dax,DE,Financial/Insurance,1.6,2.4,7.5
+SAP.DE,SAP,A,dax,DE,Tech/Software,1.6,2.4,7.5
+SIE.DE,Siemens,A,dax,DE,Industrial,1.6,2.4,7.5
+MC.PA,LVMH,A,eu_large,FR,Consumer/Luxury,1.7,2.55,7.5
+OR.PA,L'Oreal,A,eu_large,FR,Consumer/Cosmetics,1.7,2.55,7.5
+SAN.PA,Sanofi,A,eu_large,FR,Healthcare/Pharma,1.7,2.55,7.5
+TTE.PA,TotalEnergies,A,eu_large,FR,Energy/Oil,1.7,2.55,7.5
+AZN.L,AstraZeneca,A,eu_large,GB,Healthcare/Pharma,1.7,2.55,7.5
+HSBA.L,HSBC,A,eu_large,GB,Financial/Bank,1.7,2.55,7.5
+SHEL.L,Shell,A,eu_large,GB,Energy/Oil,1.7,2.55,7.5
+ULVR.L,Unilever,A,eu_large,GB,Consumer/Staples,1.7,2.55,7.5
+CL=F,WTI Crude,A,commodity,Global,Commodity/Energy,2.0,3.0,7.5
+ETH-USD,Ethereum,A,crypto,Global,Crypto,2.5,3.75,7.5
+GC=F,Gold,A,commodity,Global,Commodity/Metal,2.0,3.0,7.5
+NG=F,Natural Gas,A,commodity,Global,Commodity/Energy,2.0,3.0,7.5
+ASML.AS,ASML,A,eu_large,NL,Tech/Semi-Equip,1.7,2.55,7.5
+ABBV,AbbVie,A,us_large,US,Healthcare/Pharma,1.8,2.7,7.5
+ADBE,Adobe,A,us_large,US,Tech/Software,1.8,2.7,7.5
+AMD,AMD,A,us_large,US,Tech/Semi,1.8,2.7,7.5
+AVGO,Broadcom,A,us_large,US,Tech/Semi,1.8,2.7,7.5
+BA,Boeing,A,us_large,US,Aerospace,1.8,2.7,7.5
+BAC,Bank of America,A,us_large,US,Financial/Bank,1.8,2.7,7.5
+BLK,BlackRock,A,us_large,US,Financial/AM,1.8,2.7,7.5
+C,Citigroup,A,us_large,US,Financial/Bank,1.8,2.7,7.5
+CAT,Caterpillar,A,us_large,US,Industrial/Heavy,1.8,2.7,7.5
+COP,ConocoPhillips,A,us_large,US,Energy/Oil,1.8,2.7,7.5
+COST,Costco,A,us_large,US,Consumer/Retail,1.8,2.7,7.5
+CRM,Salesforce,A,us_large,US,Tech/Software,1.8,2.7,7.5
+CVX,Chevron,A,us_large,US,Energy/Oil,1.8,2.7,7.5
+DE,Deere,A,us_large,US,Industrial/Agri,1.8,2.7,7.5
+GD,General Dynamics,A,us_large,US,Defense,1.8,2.7,7.5
+GS,Goldman Sachs,A,us_large,US,Financial/Bank,1.8,2.7,7.5
+JNJ,Johnson & Johnson,A,us_large,US,Healthcare/Pharma,1.8,2.7,7.5
+JPM,JPMorgan,A,us_large,US,Financial/Bank,1.8,2.7,7.5
+LLY,Eli Lilly,A,us_large,US,Healthcare/Pharma,1.8,2.7,7.5
+LMT,Lockheed Martin,A,us_large,US,Defense,1.8,2.7,7.5
+MA,Mastercard,A,us_large,US,Financial/Payments,1.8,2.7,7.5
+MCD,McDonald's,A,us_large,US,Consumer/Restaurant,1.8,2.7,7.5
+META,Meta Platforms,A,us_large,US,Tech/Internet,1.8,2.7,7.5
+MRK,Merck,A,us_large,US,Healthcare/Pharma,1.8,2.7,7.5
+MS,Morgan Stanley,A,us_large,US,Financial/Bank,1.8,2.7,7.5
+MSFT,Microsoft,A,us_large,US,Tech/Software,1.8,2.7,7.5
+NFLX,Netflix,A,us_large,US,Media/Streaming,1.8,2.7,7.5
+NKE,Nike,A,us_large,US,Consumer/Apparel,1.8,2.7,7.5
+NOC,Northrop Grumman,A,us_large,US,Defense,1.8,2.7,7.5
+NVDA,NVIDIA,A,us_large,US,Tech/Semi,1.8,2.7,7.5
+ORCL,Oracle,A,us_large,US,Tech/Software,1.8,2.7,7.5
+PFE,Pfizer,A,us_large,US,Healthcare/Pharma,1.8,2.7,7.5
+RTX,RTX Corp,A,us_large,US,Defense,1.8,2.7,7.5
+SBUX,Starbucks,A,us_large,US,Consumer/Restaurant,1.8,2.7,7.5
+TSLA,Tesla,A,us_large,US,Auto/EV,1.8,2.7,7.5
+UNH,UnitedHealth,A,us_large,US,Healthcare/Insurance,1.8,2.7,7.5
+V,Visa,A,us_large,US,Financial/Payments,1.8,2.7,7.5
+WFC,Wells Fargo,A,us_large,US,Financial/Bank,1.8,2.7,7.5
+WMT,Walmart,A,us_large,US,Consumer/Retail,1.8,2.7,7.5
+XOM,ExxonMobil,A,us_large,US,Energy/Oil,1.8,2.7,7.5
+ABBN.SW,ABB,B,eu_large,CH,Industrial/Electric,1.7,2.55,7.5
+CFR.SW,Richemont,B,eu_large,CH,Consumer/Luxury,1.7,2.55,7.5
+GIVN.SW,Givaudan,B,eu_large,CH,Materials/Flavors,1.7,2.55,7.5
+LONN.SW,Lonza,B,eu_large,CH,Healthcare/CDMO,1.7,2.55,7.5
+NVS,Novartis ADR,B,asia_adr,CH,Healthcare/Pharma,2.2,3.3,7.5
+SREN.SW,Swiss Re,B,eu_large,CH,Financial/Reins,1.7,2.55,7.5
+UBSG.SW,UBS,B,eu_large,CH,Financial/Bank,1.7,2.55,7.5
+UHR.SW,Swatch,B,eu_large,CH,Consumer/Luxury,1.7,2.55,7.5
+ZURN.SW,Zurich Insurance,B,eu_large,CH,Financial/Insurance,1.7,2.55,7.5
+BABA,Alibaba,B,asia_adr,CN,Tech/Ecom,2.2,3.3,7.5
+BEKE,KE Holdings,B,asia_adr,CN,Real-Estate/Tech,2.2,3.3,7.5
+BIDU,Baidu,B,asia_adr,CN,Tech/Internet,2.2,3.3,7.5
+BILI,Bilibili,B,asia_adr,CN,Media/Video,2.2,3.3,7.5
+JD,JD.com,B,asia_adr,CN,Tech/Ecom,2.2,3.3,7.5
+LI,Li Auto,B,asia_adr,CN,Auto/EV,2.2,3.3,7.5
+NIO,NIO,B,asia_adr,CN,Auto/EV,2.2,3.3,7.5
+NTES,NetEase,B,asia_adr,CN,Media/Games,2.2,3.3,7.5
+PDD,PDD Holdings,B,asia_adr,CN,Tech/Ecom,2.2,3.3,7.5
+TCOM,Trip.com,B,asia_adr,CN,Consumer/Travel,2.2,3.3,7.5
+TME,Tencent Music,B,asia_adr,CN,Media/Streaming,2.2,3.3,7.5
+XPEV,XPeng,B,asia_adr,CN,Auto/EV,2.2,3.3,7.5
+YUMC,Yum China,B,asia_adr,CN,Consumer/Restaurant,2.2,3.3,7.5
+1COV.DE,Covestro,B,mdax,DE,Materials/Chem,1.8,2.7,7.5
+ADS.DE,Adidas,B,dax,DE,Consumer/Apparel,1.6,2.4,7.5
+AFX.DE,Carl Zeiss Meditec,B,mdax,DE,Healthcare/Optics,1.8,2.7,7.5
+AIXA.DE,Aixtron,B,mdax,DE,Tech/Semi-Equip,1.8,2.7,7.5
+AOX.DE,Alstria Office,B,mdax,DE,Real-Estate,1.8,2.7,7.5
+AT1.DE,Aroundtown,B,mdax,DE,Real-Estate,1.8,2.7,7.5
+BAS.DE,BASF,B,dax,DE,Materials/Chem,1.6,2.4,7.5
+BAYN.DE,Bayer,B,dax,DE,Healthcare/Pharma,1.6,2.4,7.5
+BEI.DE,Beiersdorf,B,dax,DE,Consumer/Cosmetics,1.6,2.4,7.5
+BMW.DE,BMW,B,dax,DE,Auto,1.6,2.4,7.5
+BNR.DE,Brenntag,B,dax,DE,Materials/Distr,1.6,2.4,7.5
+BOSS.DE,Hugo Boss,B,mdax,DE,Consumer/Luxury,1.8,2.7,7.5
+CBK.DE,Commerzbank,B,dax,DE,Financial/Bank,1.6,2.4,7.5
+CON.DE,Continental,B,dax,DE,Auto/Parts,1.6,2.4,7.5
+DBK.DE,Deutsche Bank,B,dax,DE,Financial/Bank,1.6,2.4,7.5
+DHL.DE,DHL,B,dax,DE,Transport/Logistics,1.6,2.4,7.5
+DTG.DE,Daimler Truck,B,dax,DE,Industrial/Trucks,1.6,2.4,7.5
+DUE.DE,Duerr,B,mdax,DE,Industrial/Coating,1.8,2.7,7.5
+ENR.DE,Siemens Energy,B,dax,DE,Industrial/Energy,1.6,2.4,7.5
+EOAN.DE,E.ON,B,dax,DE,Utility/Electric,1.6,2.4,7.5
+EVD.DE,CTS Eventim,B,mdax,DE,Consumer/Tickets,1.8,2.7,7.5
+EVK.DE,Evonik,B,mdax,DE,Materials/Chem,1.8,2.7,7.5
+FME.DE,Fresenius Medical,B,dax,DE,Healthcare/Dialysis,1.6,2.4,7.5
+FRA.DE,Fraport,B,mdax,DE,Transport/Airport,1.8,2.7,7.5
+FRE.DE,Fresenius,B,dax,DE,Healthcare,1.6,2.4,7.5
+G1A.DE,GEA Group,B,mdax,DE,Industrial/Food-Tech,1.8,2.7,7.5
+GYC.DE,Grand City,B,mdax,DE,Real-Estate,1.8,2.7,7.5
+HEI.DE,Heidelberg Materials,B,dax,DE,Materials/Cement,1.6,2.4,7.5
+HEN3.DE,Henkel,B,dax,DE,Consumer/Chemicals,1.6,2.4,7.5
+HFG.DE,HelloFresh,B,mdax,DE,Consumer/Delivery,1.8,2.7,7.5
+HNR1.DE,Hannover Rück,B,dax,DE,Financial/Reinsurance,1.6,2.4,7.5
+JEN.DE,Jenoptik,B,mdax,DE,Tech/Photonics,1.8,2.7,7.5
+KGX.DE,Kion Group,B,mdax,DE,Industrial/Forklift,1.8,2.7,7.5
+KRN.DE,Krones,B,mdax,DE,Industrial/Bottling,1.8,2.7,7.5
+LEG.DE,LEG Immo,B,mdax,DE,Real-Estate,1.8,2.7,7.5
+LHA.DE,Lufthansa,B,mdax,DE,Transport/Airline,1.8,2.7,7.5
+MBG.DE,Mercedes-Benz,B,dax,DE,Auto,1.6,2.4,7.5
+MRK.DE,Merck KGaA,B,dax,DE,Healthcare/Pharma,1.6,2.4,7.5
+NDA.DE,Aurubis,B,mdax,DE,Materials/Copper,1.8,2.7,7.5
+NEM.DE,Nemetschek,B,mdax,DE,Tech/Software,1.8,2.7,7.5
+P911.DE,Porsche AG,B,dax,DE,Auto/Luxury,1.6,2.4,7.5
+PAH3.DE,Porsche Holding,B,dax,DE,Auto/Holding,1.6,2.4,7.5
+PFV.DE,Pfeiffer Vacuum,B,mdax,DE,Industrial/Tools,1.8,2.7,7.5
+PUM.DE,Puma,B,mdax,DE,Consumer/Apparel,1.8,2.7,7.5
+QIA.DE,Qiagen,B,dax,DE,Healthcare/Diag,1.6,2.4,7.5
+RAA.DE,Rational,B,mdax,DE,Industrial/Kitchen,1.8,2.7,7.5
+RWE.DE,RWE,B,dax,DE,Utility/Electric,1.6,2.4,7.5
+SHL.DE,Siemens Healthineers,B,dax,DE,Healthcare/Devices,1.6,2.4,7.5
+SRT3.DE,Sartorius,B,dax,DE,Healthcare/Tools,1.6,2.4,7.5
+SY1.DE,Symrise,B,dax,DE,Materials/Flavors,1.6,2.4,7.5
+SZG.DE,Salzgitter,B,mdax,DE,Materials/Steel,1.8,2.7,7.5
+TKA.DE,ThyssenKrupp,B,mdax,DE,Industrial/Steel,1.8,2.7,7.5
+TLX.DE,Talanx,B,mdax,DE,Financial/Insurance,1.8,2.7,7.5
+UNI02.DE,Uniper,B,mdax,DE,Utility/Power,1.8,2.7,7.5
+VNA.DE,Vonovia,B,dax,DE,Real-Estate,1.6,2.4,7.5
+VOW3.DE,Volkswagen,B,dax,DE,Auto,1.6,2.4,7.5
+WCH.DE,Wacker Chemie,B,mdax,DE,Materials/Silicon,1.8,2.7,7.5
+ZAL.DE,Zalando,B,dax,DE,Consumer/Ecom,1.6,2.4,7.5
+MAERSK-B.CO,Maersk,B,eu_large,DK,Transport/Shipping,1.7,2.55,7.5
+NOVO-B.CO,Novo Nordisk,B,eu_large,DK,Healthcare/Pharma,1.7,2.55,7.5
+ACS.MC,ACS,B,eu_large,ES,Construction,1.7,2.55,7.5
+AMS.MC,Amadeus,B,eu_large,ES,Tech/Travel,1.7,2.55,7.5
+BBVA.MC,BBVA,B,eu_large,ES,Financial/Bank,1.7,2.55,7.5
+IBE.MC,Iberdrola,B,eu_large,ES,Utility/Electric,1.7,2.55,7.5
+ITX.MC,Inditex,B,eu_large,ES,Consumer/Retail,1.7,2.55,7.5
+REP.MC,Repsol,B,eu_large,ES,Energy/Oil,1.7,2.55,7.5
+SAN.MC,Banco Santander,B,eu_large,ES,Financial/Bank,1.7,2.55,7.5
+TEF.MC,Telefonica,B,eu_large,ES,Telecom,1.7,2.55,7.5
+ACA.PA,Credit Agricole,B,eu_large,FR,Financial/Bank,1.7,2.55,7.5
+AI.PA,Air Liquide,B,eu_large,FR,Materials/Gas,1.7,2.55,7.5
+AIR.PA,Airbus FR,B,eu_large,FR,Aerospace,1.7,2.55,7.5
+BN.PA,Danone,B,eu_large,FR,Consumer/Food,1.7,2.55,7.5
+BNP.PA,BNP Paribas,B,eu_large,FR,Financial/Bank,1.7,2.55,7.5
+CAP.PA,Capgemini,B,eu_large,FR,Tech/Services,1.7,2.55,7.5
+CS.PA,AXA,B,eu_large,FR,Financial/Insurance,1.7,2.55,7.5
+DG.PA,Vinci,B,eu_large,FR,Construction/Infra,1.7,2.55,7.5
+EL.PA,EssilorLuxottica,B,eu_large,FR,Healthcare/Optics,1.7,2.55,7.5
+GLE.PA,Societe Generale,B,eu_large,FR,Financial/Bank,1.7,2.55,7.5
+KER.PA,Kering,B,eu_large,FR,Consumer/Luxury,1.7,2.55,7.5
+PUB.PA,Publicis,B,eu_large,FR,Media/Advertising,1.7,2.55,7.5
+RMS.PA,Hermes,B,eu_large,FR,Consumer/Luxury,1.7,2.55,7.5
+SGO.PA,Saint-Gobain,B,eu_large,FR,Materials/Building,1.7,2.55,7.5
+STMPA.PA,STMicroelectronics,B,eu_large,FR,Tech/Semi,1.7,2.55,7.5
+SU.PA,Schneider Electric,B,eu_large,FR,Industrial/Electric,1.7,2.55,7.5
+UBI.PA,Ubisoft,B,eu_large,FR,Media/Games,1.7,2.55,7.5
+AAL.L,Anglo American,B,eu_large,GB,Materials/Mining,1.7,2.55,7.5
+BARC.L,Barclays,B,eu_large,GB,Financial/Bank,1.7,2.55,7.5
+BATS.L,British Am Tobacco,B,eu_large,GB,Consumer/Tobacco,1.7,2.55,7.5
+BHP.L,BHP,B,eu_large,GB,Materials/Mining,1.7,2.55,7.5
+BP.L,BP,B,eu_large,GB,Energy/Oil,1.7,2.55,7.5
+DGE.L,Diageo,B,eu_large,GB,Consumer/Beverage,1.7,2.55,7.5
+EXPN.L,Experian,B,eu_large,GB,Financial/Data,1.7,2.55,7.5
+GLEN.L,Glencore,B,eu_large,GB,Materials/Mining,1.7,2.55,7.5
+GSK.L,GSK,B,eu_large,GB,Healthcare/Pharma,1.7,2.55,7.5
+IMB.L,Imperial Brands,B,eu_large,GB,Consumer/Tobacco,1.7,2.55,7.5
+LLOY.L,Lloyds,B,eu_large,GB,Financial/Bank,1.7,2.55,7.5
+LSEG.L,LSE Group,B,eu_large,GB,Financial/Exchange,1.7,2.55,7.5
+NG.L,National Grid,B,eu_large,GB,Utility/Electric,1.7,2.55,7.5
+NWG.L,NatWest,B,eu_large,GB,Financial/Bank,1.7,2.55,7.5
+NXT.L,Next,B,eu_large,GB,Consumer/Retail,1.7,2.55,7.5
+PRU.L,Prudential UK,B,eu_large,GB,Financial/Insurance,1.7,2.55,7.5
+REL.L,RELX,B,eu_large,GB,Tech/Data,1.7,2.55,7.5
+RIO.L,Rio Tinto,B,eu_large,GB,Materials/Mining,1.7,2.55,7.5
+SBRY.L,Sainsbury,B,eu_large,GB,Consumer/Retail,1.7,2.55,7.5
+SSE.L,SSE,B,eu_large,GB,Utility/Electric,1.7,2.55,7.5
+TSCO.L,Tesco,B,eu_large,GB,Consumer/Retail,1.7,2.55,7.5
+HDB,HDFC Bank,B,asia_adr,IN,Financial/Bank,2.2,3.3,7.5
+IBN,ICICI Bank,B,asia_adr,IN,Financial/Bank,2.2,3.3,7.5
+INFY,Infosys,B,asia_adr,IN,Tech/Services,2.2,3.3,7.5
+WIT,Wipro,B,asia_adr,IN,Tech/Services,2.2,3.3,7.5
+CPR.MI,Campari,B,eu_large,IT,Consumer/Beverage,1.7,2.55,7.5
+ENEL.MI,Enel,B,eu_large,IT,Utility/Electric,1.7,2.55,7.5
+ENI.MI,Eni,B,eu_large,IT,Energy/Oil,1.7,2.55,7.5
+G.MI,Generali,B,eu_large,IT,Financial/Insurance,1.7,2.55,7.5
+ISP.MI,Intesa Sanpaolo,B,eu_large,IT,Financial/Bank,1.7,2.55,7.5
+MONC.MI,Moncler,B,eu_large,IT,Consumer/Luxury,1.7,2.55,7.5
+RACE.MI,Ferrari,B,eu_large,IT,Auto/Luxury,1.7,2.55,7.5
+STLAM.MI,Stellantis,B,eu_large,IT,Auto,1.7,2.55,7.5
+UCG.MI,UniCredit,B,eu_large,IT,Financial/Bank,1.7,2.55,7.5
+HMC,Honda,B,asia_adr,JP,Auto,2.2,3.3,7.5
+MFG,Mizuho,B,asia_adr,JP,Financial/Bank,2.2,3.3,7.5
+MUFG,Mitsubishi UFJ,B,asia_adr,JP,Financial/Bank,2.2,3.3,7.5
+SMFG,Sumitomo Mitsui,B,asia_adr,JP,Financial/Bank,2.2,3.3,7.5
+SONY,Sony,B,asia_adr,JP,Consumer/Tech,2.2,3.3,7.5
+TM,Toyota,B,asia_adr,JP,Auto,2.2,3.3,7.5
+AD.AS,Ahold Delhaize,B,eu_large,NL,Consumer/Retail,1.7,2.55,7.5
+ADYEN.AS,Adyen,B,eu_large,NL,Tech/Payments,1.7,2.55,7.5
+HEIA.AS,Heineken,B,eu_large,NL,Consumer/Beverage,1.7,2.55,7.5
+INGA.AS,ING Group,B,eu_large,NL,Financial/Bank,1.7,2.55,7.5
+PHIA.AS,Philips,B,eu_large,NL,Healthcare/Devices,1.7,2.55,7.5
+RAND.AS,Randstad,B,eu_large,NL,Services/HR,1.7,2.55,7.5
+ATCO-A.ST,Atlas Copco,B,eu_large,SE,Industrial/Compressor,1.7,2.55,7.5
+ERIC-B.ST,Ericsson,B,eu_large,SE,Tech/Networking,1.7,2.55,7.5
+HM-B.ST,H&M,B,eu_large,SE,Consumer/Retail,1.7,2.55,7.5
+INVE-B.ST,Investor AB,B,eu_large,SE,Financial/Holding,1.7,2.55,7.5
+SAND.ST,Sandvik,B,eu_large,SE,Industrial/Mining,1.7,2.55,7.5
+VOLV-B.ST,Volvo Group,B,eu_large,SE,Industrial/Trucks,1.7,2.55,7.5
+GRAB,Grab,B,asia_adr,SG,Tech/Mobility,2.2,3.3,7.5
+SE,Sea Ltd,B,asia_adr,SG,Tech/Ecom,2.2,3.3,7.5
+TSM,TSMC,B,asia_adr,TW,Tech/Semi,2.2,3.3,7.5
+AAL,American Airlines,B,us_large,US,Transport/Airline,1.8,2.7,7.5
+ABNB,Airbnb,B,us_large,US,Consumer/Travel,1.8,2.7,7.5
+ABT,Abbott,B,us_large,US,Healthcare/Devices,1.8,2.7,7.5
+ADI,Analog Devices,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+ADSK,Autodesk,B,us_large,US,Tech/Software,1.8,2.7,7.5
+AEP,AEP,B,us_large,US,Utility/Electric,1.8,2.7,7.5
+AIG,AIG,B,us_large,US,Financial/Insurance,1.8,2.7,7.5
+ALL,Allstate,B,us_large,US,Financial/Insurance,1.8,2.7,7.5
+ALNY,Alnylam,B,us_large,US,Healthcare/Biotech,1.8,2.7,7.5
+AMAT,Applied Materials,B,us_large,US,Tech/Semi-Equip,1.8,2.7,7.5
+AMGN,Amgen,B,us_large,US,Healthcare/Biotech,1.8,2.7,7.5
+AMT,American Tower,B,us_large,US,REIT/Tower,1.8,2.7,7.5
+ANET,Arista Networks,B,us_large,US,Tech/Networking,1.8,2.7,7.5
+APD,Air Products,B,us_large,US,Materials/Gas,1.8,2.7,7.5
+APH,Amphenol,B,us_large,US,Tech/Components,1.8,2.7,7.5
+APO,Apollo,B,us_large,US,Financial/PE,1.8,2.7,7.5
+ARM,Arm Holdings,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+AXP,American Express,B,us_large,US,Financial/Payments,1.8,2.7,7.5
+BBY,Best Buy,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+BDX,Becton Dickinson,B,us_large,US,Healthcare/Tools,1.8,2.7,7.5
+BIIB,Biogen,B,us_large,US,Healthcare/Biotech,1.8,2.7,7.5
+BKNG,Booking,B,us_large,US,Consumer/Travel,1.8,2.7,7.5
+BKR,Baker Hughes,B,us_large,US,Energy/Services,1.8,2.7,7.5
+BMRN,BioMarin,B,us_mid,US,Healthcare/Biotech,2.0,3.0,7.5
+BMY,Bristol-Myers,B,us_large,US,Healthcare/Pharma,1.8,2.7,7.5
+BNTX,BioNTech,B,us_mid,US,Healthcare/Biotech,2.0,3.0,7.5
+BRK-B,Berkshire,B,us_large,US,Financial/Conglomerate,1.8,2.7,7.5
+BSX,Boston Scientific,B,us_large,US,Healthcare/Devices,1.8,2.7,7.5
+BX,Blackstone,B,us_large,US,Financial/PE,1.8,2.7,7.5
+CAG,ConAgra,B,us_large,US,Consumer/Food,1.8,2.7,7.5
+CB,Chubb,B,us_large,US,Financial/Insurance,1.8,2.7,7.5
+CCI,Crown Castle,B,us_large,US,REIT/Tower,1.8,2.7,7.5
+CDNS,Cadence,B,us_large,US,Tech/EDA,1.8,2.7,7.5
+CEG,Constellation,B,us_large,US,Utility/Nuclear,1.8,2.7,7.5
+CF,CF Industries,B,us_large,US,Materials/Fertilizer,1.8,2.7,7.5
+CHD,Church & Dwight,B,us_large,US,Consumer/Staples,1.8,2.7,7.5
+CI,Cigna,B,us_large,US,Healthcare/Insurance,1.8,2.7,7.5
+CL,Colgate,B,us_large,US,Consumer/Staples,1.8,2.7,7.5
+CMCSA,Comcast,B,us_large,US,Media/Cable,1.8,2.7,7.5
+CME,CME Group,B,us_large,US,Financial/Exchange,1.8,2.7,7.5
+CMG,Chipotle,B,us_large,US,Consumer/Restaurant,1.8,2.7,7.5
+CMI,Cummins,B,us_large,US,Industrial/Engines,1.8,2.7,7.5
+COF,Capital One,B,us_large,US,Financial/Bank,1.8,2.7,7.5
+COIN,Coinbase,B,us_large,US,Financial/Crypto,1.8,2.7,7.5
+CPB,Campbell,B,us_large,US,Consumer/Food,1.8,2.7,7.5
+CRWD,CrowdStrike,B,us_large,US,Tech/Cyber,1.8,2.7,7.5
+CSCO,Cisco,B,us_large,US,Tech/Networking,1.8,2.7,7.5
+CSX,CSX,B,us_large,US,Transport/Rail,1.8,2.7,7.5
+CVS,CVS,B,us_large,US,Healthcare/Pharmacy,1.8,2.7,7.5
+D,Dominion,B,us_large,US,Utility/Electric,1.8,2.7,7.5
+DAL,Delta Air,B,us_large,US,Transport/Airline,1.8,2.7,7.5
+DASH,DoorDash,B,us_large,US,Consumer/Delivery,1.8,2.7,7.5
+DD,DuPont,B,us_large,US,Materials/Chemicals,1.8,2.7,7.5
+DDOG,Datadog,B,us_large,US,Tech/Cloud,1.8,2.7,7.5
+DELL,Dell,B,us_large,US,Tech/Hardware,1.8,2.7,7.5
+DG,Dollar General,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+DHR,Danaher,B,us_large,US,Healthcare/Tools,1.8,2.7,7.5
+DIS,Disney,B,us_large,US,Media/Entertainment,1.8,2.7,7.5
+DLR,Digital Realty,B,us_large,US,REIT/Data,1.8,2.7,7.5
+DLTR,Dollar Tree,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+DOW,Dow,B,us_large,US,Materials/Chemicals,1.8,2.7,7.5
+DRI,Darden,B,us_large,US,Consumer/Restaurant,1.8,2.7,7.5
+DUK,Duke Energy,B,us_large,US,Utility/Electric,1.8,2.7,7.5
+DVN,Devon Energy,B,us_large,US,Energy/Oil,1.8,2.7,7.5
+EA,Electronic Arts,B,us_large,US,Media/Games,1.8,2.7,7.5
+ECL,Ecolab,B,us_large,US,Materials/Chemicals,1.8,2.7,7.5
+ELV,Elevance,B,us_large,US,Healthcare/Insurance,1.8,2.7,7.5
+EMR,Emerson,B,us_large,US,Industrial,1.8,2.7,7.5
+EOG,EOG Resources,B,us_large,US,Energy/Oil,1.8,2.7,7.5
+EQIX,Equinix,B,us_large,US,REIT/Data,1.8,2.7,7.5
+ET,Energy Transfer,B,us_large,US,Energy/Pipeline,1.8,2.7,7.5
+ETN,Eaton,B,us_large,US,Industrial/Electric,1.8,2.7,7.5
+EXC,Exelon,B,us_large,US,Utility/Electric,1.8,2.7,7.5
+EXPE,Expedia,B,us_large,US,Consumer/Travel,1.8,2.7,7.5
+F,Ford,B,us_large,US,Auto,1.8,2.7,7.5
+FCX,Freeport-McMoRan,B,us_large,US,Materials/Copper,1.8,2.7,7.5
+FDX,FedEx,B,us_large,US,Transport/Logistics,1.8,2.7,7.5
+FTNT,Fortinet,B,us_large,US,Tech/Cyber,1.8,2.7,7.5
+GE,GE Aerospace,B,us_large,US,Aerospace,1.8,2.7,7.5
+GILD,Gilead,B,us_large,US,Healthcare/Biotech,1.8,2.7,7.5
+GIS,General Mills,B,us_large,US,Consumer/Food,1.8,2.7,7.5
+GM,GM,B,us_large,US,Auto,1.8,2.7,7.5
+HAL,Halliburton,B,us_large,US,Energy/Services,1.8,2.7,7.5
+HD,Home Depot,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+HLT,Hilton,B,us_large,US,Consumer/Hotel,1.8,2.7,7.5
+HON,Honeywell,B,us_large,US,Industrial,1.8,2.7,7.5
+HOOD,Robinhood,B,us_large,US,Financial/Broker,1.8,2.7,7.5
+HPE,HPE,B,us_large,US,Tech/Hardware,1.8,2.7,7.5
+HPQ,HP Inc,B,us_large,US,Tech/Hardware,1.8,2.7,7.5
+HSY,Hershey,B,us_large,US,Consumer/Food,1.8,2.7,7.5
+HUM,Humana,B,us_large,US,Healthcare/Insurance,1.8,2.7,7.5
+IBM,IBM,B,us_large,US,Tech/Services,1.8,2.7,7.5
+ICE,ICE,B,us_large,US,Financial/Exchange,1.8,2.7,7.5
+IDXX,IDEXX,B,us_large,US,Healthcare/Vet,1.8,2.7,7.5
+ILMN,Illumina,B,us_large,US,Healthcare/Tools,1.8,2.7,7.5
+INCY,Incyte,B,us_mid,US,Healthcare/Biotech,2.0,3.0,7.5
+INTC,Intel,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+INTU,Intuit,B,us_large,US,Tech/Software,1.8,2.7,7.5
+ISRG,Intuitive Surgical,B,us_large,US,Healthcare/Devices,1.8,2.7,7.5
+ITW,Illinois Tool Works,B,us_large,US,Industrial,1.8,2.7,7.5
+JCI,Johnson Controls,B,us_large,US,Industrial/Building,1.8,2.7,7.5
+K,Kellanova,B,us_large,US,Consumer/Food,1.8,2.7,7.5
+KKR,KKR,B,us_large,US,Financial/PE,1.8,2.7,7.5
+KLAC,KLA Corp,B,us_large,US,Tech/Semi-Equip,1.8,2.7,7.5
+KMB,Kimberly-Clark,B,us_large,US,Consumer/Staples,1.8,2.7,7.5
+KMI,Kinder Morgan,B,us_large,US,Energy/Pipeline,1.8,2.7,7.5
+KO,Coca-Cola,B,us_large,US,Consumer/Beverage,1.8,2.7,7.5
+LCID,Lucid,B,us_large,US,Auto/EV,1.8,2.7,7.5
+LIN,Linde,B,us_large,US,Materials/Gas,1.8,2.7,7.5
+LOW,Lowe's,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+LRCX,Lam Research,B,us_large,US,Tech/Semi-Equip,1.8,2.7,7.5
+LULU,Lululemon,B,us_large,US,Consumer/Apparel,1.8,2.7,7.5
+LUV,Southwest,B,us_large,US,Transport/Airline,1.8,2.7,7.5
+LYFT,Lyft,B,us_large,US,Tech/Mobility,1.8,2.7,7.5
+MAR,Marriott,B,us_large,US,Consumer/Hotel,1.8,2.7,7.5
+MCK,McKesson,B,us_large,US,Healthcare/Distr,1.8,2.7,7.5
+MCO,Moody's,B,us_large,US,Financial/Ratings,1.8,2.7,7.5
+MDB,MongoDB,B,us_large,US,Tech/Cloud,1.8,2.7,7.5
+MDLZ,Mondelez,B,us_large,US,Consumer/Food,1.8,2.7,7.5
+MDT,Medtronic,B,us_large,US,Healthcare/Devices,1.8,2.7,7.5
+MET,MetLife,B,us_large,US,Financial/Insurance,1.8,2.7,7.5
+MMM,3M,B,us_large,US,Industrial,1.8,2.7,7.5
+MO,Altria,B,us_large,US,Consumer/Tobacco,1.8,2.7,7.5
+MOS,Mosaic,B,us_large,US,Materials/Fertilizer,1.8,2.7,7.5
+MPC,Marathon Pet,B,us_large,US,Energy/Refining,1.8,2.7,7.5
+MRNA,Moderna,B,us_mid,US,Healthcare/Biotech,2.0,3.0,7.5
+MRVL,Marvell,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+MSCI,MSCI,B,us_large,US,Financial/Data,1.8,2.7,7.5
+MU,Micron,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+NEE,NextEra,B,us_large,US,Utility/Electric,1.8,2.7,7.5
+NEM,Newmont,B,us_large,US,Materials/Gold,1.8,2.7,7.5
+NET,Cloudflare,B,us_large,US,Tech/Cloud,1.8,2.7,7.5
+NOW,ServiceNow,B,us_large,US,Tech/Software,1.8,2.7,7.5
+NSC,Norfolk Southern,B,us_large,US,Transport/Rail,1.8,2.7,7.5
+NUE,Nucor,B,us_large,US,Materials/Steel,1.8,2.7,7.5
+NVAX,Novavax,B,us_mid,US,Healthcare/Biotech,2.0,3.0,7.5
+NXPI,NXP,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+O,Realty Income,B,us_large,US,REIT/Net-Lease,1.8,2.7,7.5
+OKE,Oneok,B,us_large,US,Energy/Pipeline,1.8,2.7,7.5
+ON,ON Semi,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+OXY,Occidental,B,us_large,US,Energy/Oil,1.8,2.7,7.5
+PANW,Palo Alto,B,us_large,US,Tech/Cyber,1.8,2.7,7.5
+PCAR,Paccar,B,us_large,US,Industrial/Trucks,1.8,2.7,7.5
+PEP,PepsiCo,B,us_large,US,Consumer/Beverage,1.8,2.7,7.5
+PG,P&G,B,us_large,US,Consumer/Staples,1.8,2.7,7.5
+PGR,Progressive,B,us_large,US,Financial/Insurance,1.8,2.7,7.5
+PH,Parker Hannifin,B,us_large,US,Industrial,1.8,2.7,7.5
+PINS,Pinterest,B,us_large,US,Media/Social,1.8,2.7,7.5
+PLD,Prologis,B,us_large,US,REIT/Industrial,1.8,2.7,7.5
+PLTR,Palantir,B,us_large,US,Tech/Analytics,1.8,2.7,7.5
+PM,Philip Morris,B,us_large,US,Consumer/Tobacco,1.8,2.7,7.5
+PNC,PNC,B,us_large,US,Financial/Bank,1.8,2.7,7.5
+PRU,Prudential,B,us_large,US,Financial/Insurance,1.8,2.7,7.5
+PSA,Public Storage,B,us_large,US,REIT/Storage,1.8,2.7,7.5
+PSX,Phillips 66,B,us_large,US,Energy/Refining,1.8,2.7,7.5
+PYPL,PayPal,B,us_large,US,Tech/Payments,1.8,2.7,7.5
+QCOM,Qualcomm,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+RBLX,Roblox,B,us_large,US,Media/Games,1.8,2.7,7.5
+REGN,Regeneron,B,us_large,US,Healthcare/Biotech,1.8,2.7,7.5
+RIVN,Rivian,B,us_large,US,Auto/EV,1.8,2.7,7.5
+ROK,Rockwell,B,us_large,US,Industrial/Auto,1.8,2.7,7.5
+SCHW,Schwab,B,us_large,US,Financial/Broker,1.8,2.7,7.5
+SGEN,Seagen,B,us_large,US,Healthcare/Biotech,1.8,2.7,7.5
+SHOP,Shopify,B,us_large,US,Tech/Ecommerce,1.8,2.7,7.5
+SHW,Sherwin-Williams,B,us_large,US,Materials/Paints,1.8,2.7,7.5
+SJM,Smucker,B,us_large,US,Consumer/Food,1.8,2.7,7.5
+SLB,Schlumberger,B,us_large,US,Energy/Services,1.8,2.7,7.5
+SMCI,Super Micro,B,us_large,US,Tech/Hardware,1.8,2.7,7.5
+SNAP,Snap,B,us_large,US,Media/Social,1.8,2.7,7.5
+SNOW,Snowflake,B,us_large,US,Tech/Cloud,1.8,2.7,7.5
+SNPS,Synopsys,B,us_large,US,Tech/EDA,1.8,2.7,7.5
+SO,Southern Co,B,us_large,US,Utility/Electric,1.8,2.7,7.5
+SPG,Simon Property,B,us_large,US,REIT/Retail,1.8,2.7,7.5
+SPGI,S&P Global,B,us_large,US,Financial/Data,1.8,2.7,7.5
+SPOT,Spotify,B,us_large,US,Media/Streaming,1.8,2.7,7.5
+SQ,Block,B,us_large,US,Tech/Payments,1.8,2.7,7.5
+STLD,Steel Dynamics,B,us_large,US,Materials/Steel,1.8,2.7,7.5
+SYK,Stryker,B,us_large,US,Healthcare/Devices,1.8,2.7,7.5
+T,AT&T,B,us_large,US,Telecom,1.8,2.7,7.5
+TEAM,Atlassian,B,us_large,US,Tech/Software,1.8,2.7,7.5
+TECH,Bio-Techne,B,us_mid,US,Healthcare/Tools,2.0,3.0,7.5
+TEL,TE Connectivity,B,us_large,US,Tech/Components,1.8,2.7,7.5
+TFC,Truist,B,us_large,US,Financial/Bank,1.8,2.7,7.5
+TGT,Target,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+TJX,TJX Cos,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+TMO,Thermo Fisher,B,us_large,US,Healthcare/Tools,1.8,2.7,7.5
+TMUS,T-Mobile,B,us_large,US,Telecom,1.8,2.7,7.5
+TRV,Travelers,B,us_large,US,Financial/Insurance,1.8,2.7,7.5
+TTWO,Take-Two,B,us_large,US,Media/Games,1.8,2.7,7.5
+TXN,Texas Instruments,B,us_large,US,Tech/Semi,1.8,2.7,7.5
+UAL,United Airlines,B,us_large,US,Transport/Airline,1.8,2.7,7.5
+UBER,Uber,B,us_large,US,Tech/Mobility,1.8,2.7,7.5
+ULTA,Ulta,B,us_large,US,Consumer/Retail,1.8,2.7,7.5
+UNP,Union Pacific,B,us_large,US,Transport/Rail,1.8,2.7,7.5
+UPS,UPS,B,us_large,US,Transport/Logistics,1.8,2.7,7.5
+URI,United Rentals,B,us_large,US,Industrial/Rental,1.8,2.7,7.5
+USB,US Bancorp,B,us_large,US,Financial/Bank,1.8,2.7,7.5
+VLO,Valero,B,us_large,US,Energy/Refining,1.8,2.7,7.5
+VRTX,Vertex,B,us_large,US,Healthcare/Biotech,1.8,2.7,7.5
+VST,Vistra,B,us_large,US,Utility/Power,1.8,2.7,7.5
+VZ,Verizon,B,us_large,US,Telecom,1.8,2.7,7.5
+WDAY,Workday,B,us_large,US,Tech/Software,1.8,2.7,7.5
+WELL,Welltower,B,us_large,US,REIT/Health,1.8,2.7,7.5
+WMB,Williams Cos,B,us_large,US,Energy/Pipeline,1.8,2.7,7.5
+XEL,Xcel Energy,B,us_large,US,Utility/Electric,1.8,2.7,7.5
+YUM,Yum Brands,B,us_large,US,Consumer/Restaurant,1.8,2.7,7.5
+ZS,Zscaler,B,us_large,US,Tech/Cyber,1.8,2.7,7.5
+ZTS,Zoetis,B,us_large,US,Healthcare/Animal,1.8,2.7,7.5
+DIC.DE,DIC Asset,C,mdax,DE,Real-Estate,1.8,2.7,8.0
+EVT.DE,Evotec,C,mdax,DE,Healthcare/Biotech,1.8,2.7,8.0
+GBF.DE,Bilfinger,C,mdax,DE,Industrial/Service,1.8,2.7,8.0
+MOR.DE,MorphoSys,C,mdax,DE,Healthcare/Biotech,1.8,2.7,8.0
+NDX1.DE,Nordex,C,mdax,DE,Energy/Wind,1.8,2.7,8.0
+PNE3.DE,PNE AG,C,mdax,DE,Energy/Wind,1.8,2.7,8.0
+RWI.DE,Rosenthal,C,mdax,DE,Consumer,1.8,2.7,8.0
+S92.DE,SMA Solar,C,mdax,DE,Energy/Solar,1.8,2.7,8.0
+STM.DE,Stabilus,C,mdax,DE,Industrial,1.8,2.7,8.0
+VBK.DE,VERBIO,C,mdax,DE,Energy/BioFuel,1.8,2.7,8.0
+ADA-USD,Cardano,C,crypto,Global,Crypto,2.5,3.75,8.0
+ATOM-USD,Cosmos,C,crypto,Global,Crypto,2.5,3.75,8.0
+AVAX-USD,Avalanche,C,crypto,Global,Crypto,2.5,3.75,8.0
+BZ=F,Brent Crude,C,commodity,Global,Commodity/Energy,2.0,3.0,8.0
+CC=F,Cocoa,C,commodity,Global,Commodity/Soft,2.0,3.0,8.0
+CT=F,Cotton,C,commodity,Global,Commodity/Soft,2.0,3.0,8.0
+DOGE-USD,Dogecoin,C,crypto,Global,Crypto,2.5,3.75,8.0
+DOT-USD,Polkadot,C,crypto,Global,Crypto,2.5,3.75,8.0
+HG=F,Copper,C,commodity,Global,Commodity/Metal,2.0,3.0,8.0
+KC=F,Coffee,C,commodity,Global,Commodity/Soft,2.0,3.0,8.0
+LE=F,Live Cattle,C,commodity,Global,Commodity/Livestock,2.0,3.0,8.0
+LINK-USD,Chainlink,C,crypto,Global,Crypto,2.5,3.75,8.0
+LTC-USD,Litecoin,C,crypto,Global,Crypto,2.5,3.75,8.0
+MATIC-USD,Polygon,C,crypto,Global,Crypto,2.5,3.75,8.0
+PA=F,Palladium,C,commodity,Global,Commodity/Metal,2.0,3.0,8.0
+PL=F,Platinum,C,commodity,Global,Commodity/Metal,2.0,3.0,8.0
+SB=F,Sugar,C,commodity,Global,Commodity/Soft,2.0,3.0,8.0
+SOL-USD,Solana,C,crypto,Global,Crypto,2.5,3.75,8.0
+UNI-USD,Uniswap,C,crypto,Global,Crypto,2.5,3.75,8.0
+XRP-USD,XRP,C,crypto,Global,Crypto,2.5,3.75,8.0
+ZC=F,Corn,C,commodity,Global,Commodity/Agri,2.0,3.0,8.0
+ZS=F,Soybeans,C,commodity,Global,Commodity/Agri,2.0,3.0,8.0
+ZW=F,Wheat,C,commodity,Global,Commodity/Agri,2.0,3.0,8.0
+ACHR,Archer Aviation,C,us_small,US,Aerospace/eVTOL,2.2,3.3,8.0
+AFRM,Affirm,C,us_mid,US,Financial/Fintech,2.0,3.0,8.0
+AI,C3.ai,C,us_mid,US,Tech/AI,2.0,3.0,8.0
+AMC,AMC,C,us_small,US,Consumer/Meme,2.2,3.3,8.0
+ANF,Abercrombie,C,us_mid,US,Consumer/Apparel,2.0,3.0,8.0
+APLD,Applied Digital,C,us_small,US,Tech/AI-Infra,2.2,3.3,8.0
+ARKG,ARK Genomics,C,etf_thematic,US,ETF/Theme-Bio,2.0,3.0,8.0
+ARKK,ARK Innovation,C,etf_thematic,US,ETF/Theme-Innov,2.0,3.0,8.0
+ARKQ,ARK Autonomous,C,etf_thematic,US,ETF/Theme-Robot,2.0,3.0,8.0
+ARKW,ARK Internet,C,etf_thematic,US,ETF/Theme-Net,2.0,3.0,8.0
+ASTR,Astra Space,C,us_small,US,Aerospace/Space,2.2,3.3,8.0
+ASTS,AST SpaceMobile,C,us_mid,US,Telecom/Satellite,2.0,3.0,8.0
+BB,BlackBerry,C,us_small,US,Tech/Meme,2.2,3.3,8.0
+BBAI,BigBear AI,C,us_small,US,Tech/AI,2.2,3.3,8.0
+BE,Bloom Energy,C,us_mid,US,Energy/FuelCell,2.0,3.0,8.0
+BEAM,Beam Tx,C,us_mid,US,Healthcare/Biotech,2.0,3.0,8.0
+BIRK,Birkenstock,C,us_mid,US,Consumer/Apparel,2.0,3.0,8.0
+BITF,Bitfarms,C,us_small,US,Financial/Crypto-Mining,2.2,3.3,8.0
+BITO,ProShares BTC Strategy,C,etf_thematic,US,ETF/Crypto-BTC,2.0,3.0,8.0
+BITX,2x Bitcoin Strategy,C,etf_thematic,US,ETF/Leveraged-Crypto,2.0,3.0,8.0
+BLDE,Blade Air,C,us_small,US,Aerospace/Air-Taxi,2.2,3.3,8.0
+BLDP,Ballard,C,us_small,US,Energy/Hydrogen,2.2,3.3,8.0
+BOTZ,Robotics & AI ETF,C,etf_thematic,US,ETF/Theme-Robot,2.0,3.0,8.0
+CCJ,Cameco,C,us_large,US,Energy/Uranium,1.8,2.7,8.0
+CHPT,ChargePoint,C,us_small,US,Auto/EV-Charge,2.2,3.3,8.0
+CLS,Celestica,C,us_mid,US,Tech/EMS,2.0,3.0,8.0
+CLSK,CleanSpark,C,us_mid,US,Financial/Crypto-Mining,2.0,3.0,8.0
+COPX,Copper Miners ETF,C,etf_commodity,US,ETF/Commodity-Copper,2.0,3.0,8.0
+CORN,Corn ETF,C,etf_commodity,US,ETF/Commodity-Corn,2.0,3.0,8.0
+CRDO,Credo,C,us_mid,US,Tech/AI-Cables,2.0,3.0,8.0
+CRSP,CRISPR Tx,C,us_mid,US,Healthcare/Biotech,2.0,3.0,8.0
+CVNA,Carvana,C,us_mid,US,Consumer/Auto,2.0,3.0,8.0
+DBA,Agriculture ETF,C,etf_commodity,US,ETF/Commodity-Agri,2.0,3.0,8.0
+DECK,Deckers,C,us_mid,US,Consumer/Apparel,2.0,3.0,8.0
+DIA,Dow ETF,C,etf_broad,US,ETF/Broad-Dow,1.5,2.25,8.0
+DKS,Dick's Sporting,C,us_mid,US,Consumer/Retail,2.0,3.0,8.0
+DNA,Ginkgo Bio,C,us_small,US,Healthcare/Biotech,2.2,3.3,8.0
+EDIT,Editas,C,us_small,US,Healthcare/Biotech,2.2,3.3,8.0
+EEM,Emerging Markets,C,etf_thematic,US,ETF/Region-EM,2.0,3.0,8.0
+EFA,MSCI EAFE,C,etf_broad,US,ETF/Broad-Intl,1.5,2.25,8.0
+ENPH,Enphase,C,us_large,US,Energy/Solar,1.8,2.7,8.0
+ETHA,iShares Ether,C,etf_thematic,US,ETF/Crypto-ETH,2.0,3.0,8.0
+ETHU,2x Ether Strategy,C,etf_thematic,US,ETF/Leveraged-Crypto,2.0,3.0,8.0
+EVGO,EVgo,C,us_small,US,Auto/EV-Charge,2.2,3.3,8.0
+EWG,Germany ETF,C,etf_thematic,US,ETF/Region-DE,2.0,3.0,8.0
+EWJ,Japan ETF,C,etf_thematic,US,ETF/Region-Japan,2.0,3.0,8.0
+EWT,Taiwan ETF,C,etf_thematic,US,ETF/Region-Taiwan,2.0,3.0,8.0
+EWY,South Korea ETF,C,etf_thematic,US,ETF/Region-Korea,2.0,3.0,8.0
+EWZ,Brazil ETF,C,etf_thematic,US,ETF/Region-Brazil,2.0,3.0,8.0
+FBTC,Fidelity Bitcoin,C,etf_thematic,US,ETF/Crypto-BTC,2.0,3.0,8.0
+FLEX,Flex Ltd,C,us_mid,US,Tech/EMS,2.0,3.0,8.0
+FSLR,First Solar,C,us_large,US,Energy/Solar,1.8,2.7,8.0
+FUBO,FuboTV,C,us_small,US,Media/Streaming,2.2,3.3,8.0
+FXI,China Large-Cap,C,etf_thematic,US,ETF/Region-China,2.0,3.0,8.0
+GLD,SPDR Gold,C,etf_commodity,US,ETF/Commodity-Gold,2.0,3.0,8.0
+GME,GameStop,C,us_small,US,Consumer/Meme,2.2,3.3,8.0
+HUT,Hut 8,C,us_small,US,Financial/Crypto-Mining,2.2,3.3,8.0
+IBIT,iShares Bitcoin,C,etf_thematic,US,ETF/Crypto-BTC,2.0,3.0,8.0
+ICLN,Clean Energy ETF,C,etf_thematic,US,ETF/Theme-Clean,2.0,3.0,8.0
+INDA,India ETF,C,etf_thematic,US,ETF/Region-India,2.0,3.0,8.0
+IONQ,IonQ,C,us_mid,US,Tech/Quantum,2.0,3.0,8.0
+IREN,Iris Energy,C,us_small,US,Tech/AI-Infra,2.2,3.3,8.0
+ITA,Aerospace/Defense ETF,C,etf_sector,US,ETF/Sector-Defense,1.8,2.7,8.0
+IWM,Russell 2000 ETF,C,etf_broad,US,ETF/Broad-Russell,1.5,2.25,8.0
+IYT,Transport ETF,C,etf_sector,US,ETF/Sector-Trans,1.8,2.7,8.0
+JBL,Jabil,C,us_mid,US,Tech/EMS,2.0,3.0,8.0
+JOBY,Joby Aviation,C,us_small,US,Aerospace/eVTOL,2.2,3.3,8.0
+KRE,Regional Banks ETF,C,etf_sector,US,ETF/Sector-RegBank,1.8,2.7,8.0
+KWEB,KraneShares China Net,C,etf_thematic,US,ETF/Theme-China,2.0,3.0,8.0
+LEU,Centrus Energy,C,us_small,US,Energy/Nuclear,2.2,3.3,8.0
+LIT,Lithium ETF,C,etf_thematic,US,ETF/Theme-Lithium,2.0,3.0,8.0
+MARA,MARA Holdings,C,us_mid,US,Financial/Crypto-Mining,2.0,3.0,8.0
+MCHI,MSCI China,C,etf_thematic,US,ETF/Region-China,2.0,3.0,8.0
+MSTR,MicroStrategy,C,us_large,US,Financial/Crypto-Treasury,1.8,2.7,8.0
+NBIS,Nebius Group,C,us_mid,US,Tech/AI-Infra,2.0,3.0,8.0
+NNE,Nano Nuclear,C,us_small,US,Energy/Nuclear,2.2,3.3,8.0
+NTLA,Intellia,C,us_mid,US,Healthcare/Biotech,2.0,3.0,8.0
+NU,Nu Holdings,C,us_mid,US,Financial/Fintech,2.0,3.0,8.0
+OKLO,Oklo,C,us_mid,US,Energy/Nuclear,2.0,3.0,8.0
+ONON,On Holding,C,us_mid,US,Consumer/Apparel,2.0,3.0,8.0
+PALL,Palladium ETF,C,etf_commodity,US,ETF/Commodity-Pall,2.0,3.0,8.0
+PAVE,US Infrastructure,C,etf_thematic,US,ETF/Theme-Infra,2.0,3.0,8.0
+PL,Planet Labs,C,us_small,US,Aerospace/Satellite,2.2,3.3,8.0
+PLUG,Plug Power,C,us_small,US,Energy/Hydrogen,2.2,3.3,8.0
+PPLT,Platinum ETF,C,etf_commodity,US,ETF/Commodity-Plat,2.0,3.0,8.0
+QBTS,D-Wave,C,us_small,US,Tech/Quantum,2.2,3.3,8.0
+QQQ,Nasdaq 100 ETF,C,etf_broad,US,ETF/Broad-Nasdaq,1.5,2.25,8.0
+QUBT,Quantum Computing,C,us_small,US,Tech/Quantum,2.2,3.3,8.0
+RGTI,Rigetti,C,us_small,US,Tech/Quantum,2.2,3.3,8.0
+RIOT,Riot Platforms,C,us_mid,US,Financial/Crypto-Mining,2.0,3.0,8.0
+RKLB,Rocket Lab,C,us_mid,US,Aerospace/Space,2.0,3.0,8.0
+RUN,Sunrun,C,us_small,US,Energy/Solar,2.2,3.3,8.0
+SEDG,SolarEdge,C,us_mid,US,Energy/Solar,2.0,3.0,8.0
+SLV,iShares Silver,C,etf_commodity,US,ETF/Commodity-Silver,2.0,3.0,8.0
+SMH,Semiconductor ETF,C,etf_thematic,US,ETF/Theme-Semi,2.0,3.0,8.0
+SMR,NuScale,C,us_mid,US,Energy/Nuclear,2.0,3.0,8.0
+SOFI,SoFi,C,us_mid,US,Financial/Fintech,2.0,3.0,8.0
+SOUN,SoundHound AI,C,us_small,US,Tech/AI,2.2,3.3,8.0
+SOXL,3x Long Semi,C,etf_thematic,US,ETF/Leveraged-Long,2.0,3.0,8.0
+SOXS,3x Short Semi,X,etf_thematic,US,ETF/Leveraged-Short,2.0,3.0,8.0
+SOXX,iShares Semi ETF,C,etf_thematic,US,ETF/Theme-Semi,2.0,3.0,8.0
+SOYB,Soybeans ETF,C,etf_commodity,US,ETF/Commodity-Soy,2.0,3.0,8.0
+SPXU,3x Short S&P500,X,etf_thematic,US,ETF/Leveraged-Short,2.0,3.0,8.0
+SPY,S&P 500 ETF,C,etf_broad,US,ETF/Broad-SP500,1.5,2.25,8.0
+SQQQ,3x Short Nasdaq100,X,etf_thematic,US,ETF/Leveraged-Short,2.0,3.0,8.0
+SRPT,Sarepta,C,us_mid,US,Healthcare/Biotech,2.0,3.0,8.0
+SVXY,Short VIX,X,etf_thematic,US,ETF/VIX,2.0,3.0,8.0
+TAN,Solar ETF,C,etf_thematic,US,ETF/Theme-Solar,2.0,3.0,8.0
+TQQQ,3x Long Nasdaq100,C,etf_thematic,US,ETF/Leveraged-Long,2.0,3.0,8.0
+UEC,Uranium Energy,C,us_small,US,Energy/Uranium,2.2,3.3,8.0
+UNG,US Nat Gas Fund,C,etf_commodity,US,ETF/Commodity-Gas,2.0,3.0,8.0
+UPRO,3x Long S&P500,C,etf_thematic,US,ETF/Leveraged-Long,2.0,3.0,8.0
+UPST,Upstart,C,us_mid,US,Financial/Fintech,2.0,3.0,8.0
+URA,Uranium Miners ETF,C,etf_thematic,US,ETF/Theme-Uran,2.0,3.0,8.0
+URNM,Uranium ETF,C,etf_thematic,US,ETF/Theme-Uran,2.0,3.0,8.0
+USO,US Oil Fund,C,etf_commodity,US,ETF/Commodity-Oil,2.0,3.0,8.0
+UVXY,2x VIX Futures,X,etf_thematic,US,ETF/VIX,2.0,3.0,8.0
+VIXY,VIX Futures,C,etf_thematic,US,ETF/VIX,2.0,3.0,8.0
+VOO,Vanguard S&P 500,C,etf_broad,US,ETF/Broad-SP500,1.5,2.25,8.0
+VTI,Total US Market,C,etf_broad,US,ETF/Broad-US,1.5,2.25,8.0
+VXUS,Total Intl ex-US,C,etf_broad,US,ETF/Broad-Intl,1.5,2.25,8.0
+WEAT,Wheat ETF,C,etf_commodity,US,ETF/Commodity-Wheat,2.0,3.0,8.0
+WULF,TeraWulf,C,us_small,US,Financial/Crypto-Mining,2.2,3.3,8.0
+XLB,Materials SPDR,C,etf_sector,US,ETF/Sector-Mat,1.8,2.7,8.0
+XLC,Comm Services SPDR,C,etf_sector,US,ETF/Sector-Comm,1.8,2.7,8.0
+XLE,Energy SPDR,C,etf_sector,US,ETF/Sector-Energy,1.8,2.7,8.0
+XLF,Financial SPDR,C,etf_sector,US,ETF/Sector-Financial,1.8,2.7,8.0
+XLI,Industrial SPDR,C,etf_sector,US,ETF/Sector-Ind,1.8,2.7,8.0
+XLK,Tech SPDR,C,etf_sector,US,ETF/Sector-Tech,1.8,2.7,8.0
+XLP,Consumer Staples SPDR,C,etf_sector,US,ETF/Sector-ConsStap,1.8,2.7,8.0
+XLRE,Real Estate SPDR,C,etf_sector,US,ETF/Sector-RE,1.8,2.7,8.0
+XLU,Utilities SPDR,C,etf_sector,US,ETF/Sector-Util,1.8,2.7,8.0
+XLV,Healthcare SPDR,C,etf_sector,US,ETF/Sector-Health,1.8,2.7,8.0
+XLY,Consumer Disc SPDR,C,etf_sector,US,ETF/Sector-ConsDisc,1.8,2.7,8.0
+XME,Metals & Mining ETF,C,etf_sector,US,ETF/Sector-Mining,1.8,2.7,8.0
+XOP,Oil & Gas Exp ETF,C,etf_sector,US,ETF/Sector-OilExp,1.8,2.7,8.0
+RHM.DE,Rheinmetall,X,dax,DE,Defense,1.6,2.4,9.0
+BTC-USD,Bitcoin,X,crypto,Global,Crypto,2.5,3.75,9.0
+SI=F,Silber,X,commodity,Global,Commodity/Metal,2.0,3.0,9.0
+AAPL,Apple,X,us_large,US,Tech/Hardware,1.8,2.7,9.0
+AMZN,Amazon,X,us_large,US,Tech/Ecom,1.8,2.7,9.0
+GOOG,Alphabet C,X,us_large,US,Tech/Internet,1.8,2.7,9.0
+GOOGL,Alphabet A,X,us_large,US,Tech/Internet,1.8,2.7,9.0
+0700.HK,Tencent,B,asia_large,HK,Technology/Internet,1.8,2.7,7.5
+0992.HK,Lenovo Group,B,asia_large,HK,Technology/Hardware,1.8,2.7,7.5
+9618.HK,JD.com,B,asia_large,HK,Consumer/Internet,1.8,2.7,7.5
+3690.HK,Meituan,B,asia_large,HK,Consumer/Internet,1.8,2.7,7.5
+1810.HK,Xiaomi,B,asia_large,HK,Technology/Hardware,1.8,2.7,7.5
+9999.HK,NetEase HK,B,asia_large,HK,Technology/Gaming,1.8,2.7,7.5
+1024.HK,Kuaishou,C,asia_mid,HK,Technology/Internet,2.0,3.0,7.5
+0941.HK,China Mobile,B,asia_large,HK,Telecom,1.7,2.55,7.5
+1211.HK,BYD,B,asia_large,HK,Industrials/Auto,1.8,2.7,7.5
+0388.HK,Hong Kong Exchanges,B,asia_large,HK,Financials/Exchange,1.7,2.55,7.5
+2382.HK,Sunny Optical,C,asia_mid,HK,Technology/Optics,2.0,3.0,7.5
+6862.HK,Haidilao,C,asia_mid,HK,Consumer/Food,2.0,3.0,7.5
+2330.TW,TSMC Taiwan,A,asia_mega,TW,Technology/Semi,1.7,2.55,7.5
+2454.TW,MediaTek,B,asia_large,TW,Technology/Semi,1.8,2.7,7.5
+2317.TW,Hon Hai Foxconn,B,asia_large,TW,Technology/EMS,1.8,2.7,7.5
+005930.KS,Samsung Electronics,A,asia_mega,KR,Technology/Semi,1.7,2.55,7.5
+000660.KS,SK Hynix,A,asia_mega,KR,Technology/Memory,1.8,2.7,7.5
+035420.KS,Naver,B,asia_large,KR,Technology/Internet,1.8,2.7,7.5
+005380.KS,Hyundai Motor,B,asia_large,KR,Industrials/Auto,1.8,2.7,7.5
+006400.KS,Samsung SDI,C,asia_mid,KR,Industrials/Battery,2.0,3.0,7.5
+6758.T,Sony,A,asia_mega,JP,Technology/Consumer,1.7,2.55,7.5
+9984.T,SoftBank Group,B,asia_large,JP,Technology/Holding,2.0,3.0,7.5
+7203.T,Toyota Motor,A,asia_mega,JP,Industrials/Auto,1.7,2.55,7.5
+8035.T,Tokyo Electron,B,asia_large,JP,Technology/Equipment,1.8,2.7,7.5
+6920.T,Lasertec,C,asia_mid,JP,Technology/Equipment,2.0,3.0,7.5
+6594.T,Nidec,B,asia_large,JP,Industrials/Motor,1.8,2.7,7.5
+4063.T,Shin-Etsu Chemical,B,asia_large,JP,Materials/Silicon,1.7,2.55,7.5
+7974.T,Nintendo,B,asia_large,JP,Consumer/Gaming,1.8,2.7,7.5
+9433.T,KDDI,C,asia_mid,JP,Telecom,1.7,2.55,7.5

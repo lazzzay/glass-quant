@@ -1,0 +1,10 @@
+# daily-invest-oss: optional extras (install only what you need)
+# Install:  python3 -m pip install -r requirements-optional.txt
+# Upper bounds keep the next, untested major release out.
+
+transformers>=4.40,<5     # tools/finbert_scorer.py, tools/findpo_scorer.py (downloads models at runtime)
+torch>=2.1,<3             # backend for transformers pipelines
+hmmlearn>=0.3,<1          # regime/hmm_regime_stub.py
+praw>=7.7,<8              # signals/reddit_trending.py (--prefer-praw, Reddit API terms apply)
+curl_cffi>=0.6,<1         # tools/options_flow.py browser-impersonating session (provider terms apply)
+mcp>=1.2,<2; python_version >= "3.10"   # mcp/daily_invest_mcp.py (FastMCP; mcp 2.x removed mcp.server.fastmcp)

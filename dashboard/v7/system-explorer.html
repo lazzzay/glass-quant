@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>System-Explorer · Daily Invest</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%235ba8ff'/%3E%3Ctext x='50' y='63' font-size='48' text-anchor='middle' fill='%230a0e13' font-family='sans-serif' font-weight='700'%3ED%3C/text%3E%3C/svg%3E">
+  <style>
+    /* ==========================================================================
+       Design-Tokens (synchron mit Cockpit index.html)
+       ========================================================================== */
+    :root{
+      --bg:            #0a0e13;
+      --bg-deep:       #070a0e;
+      --surface-1:     #111821;
+      --surface-2:     #161e28;
+      --surface-3:     #1c2631;
+      --border:        #22303d;
+      --border-hi:     #2c3c4c;
+
+      --text:          #e8eef5;
+      --text-dim:      #a9b8c8;
+      --muted:         #6d7f93;
+      --muted-dim:     #4a5867;
+
+      --accent:        #5ba8ff;
+      --accent-glow:   #5ba8ff33;
+      --ok:            #4ade80;
+      --ok-dim:        #4ade8022;
+      --warn:          #fbbf24;
+      --warn-dim:      #fbbf2422;
+      --bad:           #f87171;
+      --bad-dim:       #f8717122;
+      --violet:        #a78bfa;
+      --cyan:          #22d3ee;
+      --orange:        #fb923c;
+
+      /* Per-Section Akzente */
+      --sec-uebersicht: var(--accent);
+      --sec-pipeline:   var(--cyan);
+      --sec-scoring:    var(--violet);
+      --sec-scripts:    var(--ok);
+      --sec-daten:      var(--warn);
+      --sec-sim:        var(--violet);
+      --sec-tasks:      var(--cyan);
+      --sec-docs:       var(--accent);
+      --sec-tickets:    var(--orange);
+      --sec-memory:     var(--cyan);
+      --sec-roadmap:    var(--ok);
+      --sec-org:        var(--violet);
+
+      --font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --mono: ui-monospace, "SF Mono", "Menlo", "JetBrains Mono", Consolas, monospace;
+
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 14px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 0 0 1px rgba(255,255,255,.02);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.03);
+      --shadow-lg: 0 10px 32px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04);
+    }
+
+    /* ==========================================================================
+       Base
+       ========================================================================== */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 15% -10%, #0e1825 0%, transparent 60%),
+        radial-gradient(1000px 500px at 110% 10%, #1a1229 0%, transparent 55%),
+        radial-gradient(900px 500px at 50% 110%, #0a1a1e 0%, transparent 50%),
+        var(--bg);
+      color:var(--text);
+      font-family:var(--font);
+      font-size:14px;
+      line-height:1.55;
+      font-feature-settings:"cv02","cv03","cv04","ss01","tnum";
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;
+    }
+    a{color:var(--accent);text-decoration:none;transition:color .15s}
+    a:hover{color:#7dbcff;text-decoration:underline;text-underline-offset:3px}
+    code{
+      background:var(--surface-1);
+      padding:1px 6px;
+      border-radius:4px;
+      font-family:var(--mono);
+      font-size:12px;
+      color:#c8d6e4;
+      border:1px solid var(--border);
+    }
+
+    /* ==========================================================================
+       Header
+       ========================================================================== */
+    header{
+      padding:18px 32px;
+      border-bottom:1px solid var(--border);
+      display:flex;justify-content:space-between;align-items:center;
+      background:linear-gradient(180deg, rgba(17,24,33,.92) 0%, rgba(10,14,19,.82) 100%);
+      backdrop-filter:blur(14px) saturate(140%);
+      -webkit-backdrop-filter:blur(14px) saturate(140%);
+      position:sticky;top:0;z-index:20;
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-logo{
+      width:38px;height:38px;border-radius:10px;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--violet) 100%);
+      color:var(--bg-deep);font-weight:800;font-size:18px;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 14px var(--accent-glow);
+      letter-spacing:-.5px;
+    }
+    .brand-text h1{
+      margin:0;font-size:16px;font-weight:650;letter-spacing:-.2px;
+      display:flex;align-items:center;gap:8px;
+    }
+    .brand-text .sub{color:var(--muted);font-size:12px;margin-top:2px;letter-spacing:.1px}
+    .back-link{
+      color:var(--text-dim);
+      font-size:13px;
+      padding:8px 14px;
+      border-radius:var(--r-sm);
+      border:1px solid var(--border);
+      background:var(--surface-1);
+      transition:all .15s;
+      display:inline-flex;align-items:center;gap:6px;
+    }
+    .back-link:hover{
+      color:var(--text);background:var(--surface-2);
+      border-color:var(--border-hi);text-decoration:none;
+      transform:translateY(-1px);
+    }
+
+    /* ==========================================================================
+       TOC (Scroll-Spy)
+       ========================================================================== */
+    nav.toc{
+      padding:12px 32px;
+      background:rgba(10,14,19,.75);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+      display:flex;gap:6px;flex-wrap:wrap;
+      font-size:12px;
+      position:sticky;top:76px;z-index:19;
+    }
+    nav.toc a{
+      color:var(--muted);
+      padding:5px 11px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:all .15s;
+      font-weight:500;
+    }
+    nav.toc a:hover{
+      background:var(--surface-1);color:var(--text-dim);
+      border-color:var(--border);text-decoration:none;
+    }
+    nav.toc a.active{
+      background:var(--accent-glow);
+      color:var(--accent);
+      border-color:var(--accent);
+      box-shadow:inset 0 0 0 1px rgba(91,168,255,.25);
+    }
+
+    /* ==========================================================================
+       Main / Sections
+       ========================================================================== */
+    main{padding:32px;max-width:1400px;margin:0 auto}
+
+    section{
+      margin-bottom:36px;
+      background:linear-gradient(180deg, var(--surface-1) 0%, rgba(17,24,33,.85) 100%);
+      border:1px solid var(--border);
+      border-left:3px solid var(--sec-color, var(--accent));
+      border-radius:var(--r-lg);
+      padding:26px 28px;
+      scroll-margin-top:150px;
+      box-shadow:var(--shadow-md);
+      opacity:0;
+      transform:translateY(8px);
+      animation:fadeUp .5s ease forwards;
+    }
+    section:nth-of-type(1){animation-delay:.02s}
+    section:nth-of-type(2){animation-delay:.06s}
+    section:nth-of-type(3){animation-delay:.10s}
+    section:nth-of-type(4){animation-delay:.14s}
+    section:nth-of-type(5){animation-delay:.18s}
+    section:nth-of-type(6){animation-delay:.22s}
+    section:nth-of-type(7){animation-delay:.26s}
+    section:nth-of-type(8){animation-delay:.30s}
+    section:nth-of-type(9){animation-delay:.34s}
+    section:nth-of-type(10){animation-delay:.38s}
+    section:nth-of-type(11){animation-delay:.42s}
+    section:nth-of-type(12){animation-delay:.46s}
+
+    #uebersicht{--sec-color:var(--sec-uebersicht)}
+    #pipeline {--sec-color:var(--sec-pipeline)}
+    #scoring  {--sec-color:var(--sec-scoring)}
+    #scripts  {--sec-color:var(--sec-scripts)}
+    #daten    {--sec-color:var(--sec-daten)}
+    #sim      {--sec-color:var(--sec-sim)}
+    #tasks    {--sec-color:var(--sec-tasks)}
+    #docs     {--sec-color:var(--sec-docs)}
+    #tickets  {--sec-color:var(--sec-tickets)}
+    #memory   {--sec-color:var(--sec-memory)}
+    #roadmap  {--sec-color:var(--sec-roadmap)}
+    #org      {--sec-color:var(--sec-org)}
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(8px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    section h2{
+      margin:0 0 4px 0;
+      font-size:19px;font-weight:650;letter-spacing:-.3px;
+      display:flex;align-items:center;gap:10px;
+      color:var(--text);
+    }
+    section h2::before{
+      content:"";
+      width:6px;height:6px;border-radius:50%;
+      background:var(--sec-color, var(--accent));
+      box-shadow:0 0 12px var(--sec-color, var(--accent));
+    }
+    section .lede{color:var(--muted);font-size:13px;margin-bottom:20px;line-height:1.55}
+    section h3{
+      font-size:13.5px;font-weight:600;
+      margin:22px 0 10px 0;color:var(--text-dim);
+      text-transform:uppercase;letter-spacing:.6px;
+    }
+    .hr{height:1px;background:var(--border);margin:24px 0}
+
+    /* ==========================================================================
+       Grids
+       ========================================================================== */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media (max-width:880px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+    /* ==========================================================================
+       Tables
+       ========================================================================== */
+    table{
+      width:100%;border-collapse:collapse;
+      font-size:12.5px;margin:10px 0;
+      background:var(--surface-2);border-radius:var(--r-sm);overflow:hidden;
+    }
+    thead tr{background:var(--surface-3)}
+    th,td{
+      text-align:left;padding:9px 12px;
+      border-bottom:1px solid var(--border);vertical-align:top;
+    }
+    tbody tr:last-child td{border-bottom:none}
+    th{
+      color:var(--muted);font-weight:600;font-size:11px;
+      text-transform:uppercase;letter-spacing:.6px;
+    }
+    tbody tr{transition:background .12s}
+    tbody tr:hover{background:rgba(91,168,255,.05)}
+    .mono{font-family:var(--mono);font-size:11.5px;color:#c8d6e4}
+    .muted{color:var(--muted)}
+
+    /* ==========================================================================
+       Pills
+       ========================================================================== */
+    .pill{
+      display:inline-block;padding:2px 9px;border-radius:999px;
+      font-size:10.5px;font-weight:600;letter-spacing:.3px;
+      border:1px solid transparent;
+    }
+    .pill-ok    {background:var(--ok-dim);  color:var(--ok);  border-color:rgba(74,222,128,.28)}
+    .pill-warn  {background:var(--warn-dim);color:var(--warn);border-color:rgba(251,191,36,.28)}
+    .pill-bad   {background:var(--bad-dim); color:var(--bad); border-color:rgba(248,113,113,.28)}
+    .pill-mute  {background:rgba(109,127,147,.16);color:var(--muted);border-color:rgba(109,127,147,.26)}
+    .pill-accent{background:var(--accent-glow);color:var(--accent);border-color:rgba(91,168,255,.3)}
+
+    /* ==========================================================================
+       KPI Cards
+       ========================================================================== */
+    .kpi{
+      background:linear-gradient(180deg, var(--surface-2) 0%, var(--surface-1) 100%);
+      border:1px solid var(--border);
+      border-radius:var(--r-md);
+      padding:16px 14px;
+      text-align:center;
+      transition:all .18s;
+      position:relative;
+      overflow:hidden;
+    }
+    .kpi::before{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 70%);
+      opacity:.4;pointer-events:none;
+    }
+    .kpi:hover{
+      transform:translateY(-2px);
+      border-color:var(--border-hi);
+      box-shadow:var(--shadow-md);
+    }
+    .kpi .n{
+      font-size:26px;font-weight:700;
+      color:var(--accent);letter-spacing:-.5px;
+      font-variant-numeric:tabular-nums;
+      position:relative;
+    }
+    .kpi .l{
+      color:var(--muted);font-size:10.5px;
+      text-transform:uppercase;letter-spacing:.8px;
+      margin-top:4px;
+      position:relative;
+    }
+
+    /* ==========================================================================
+       Nodes (Cards mit Titel + Body)
+       ========================================================================== */
+    .node{
+      background:linear-gradient(180deg, var(--surface-2) 0%, var(--surface-1) 100%);
+      border:1px solid var(--border);
+      border-radius:var(--r-md);
+      padding:14px 16px;
+      margin:6px 0;
+      transition:all .15s;
+    }
+    .node:hover{border-color:var(--border-hi);background:var(--surface-2)}
+    .node-title{
+      font-weight:600;font-size:13.5px;
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+      color:var(--text);
+    }
+    .node-body{color:var(--text-dim);font-size:12.5px;margin-top:6px;line-height:1.55}
+
+    /* ==========================================================================
+       Pipeline-SVG Wrapper
+       ========================================================================== */
+    .pipeline{
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      padding:18px;
+      border-radius:var(--r-md);
+      overflow-x:auto;
+      margin:12px 0;
+    }
+    .pipeline svg{display:block;min-width:900px}
+    .legend{
+      display:flex;gap:16px;margin:10px 0 0;font-size:11.5px;
+      color:var(--text-dim);flex-wrap:wrap;
+    }
+    .legend .sw{
+      display:inline-block;width:11px;height:11px;border-radius:3px;
+      margin-right:6px;vertical-align:middle;
+    }
+
+    /* ==========================================================================
+       Timeline
+       ========================================================================== */
+    .timeline{
+      position:relative;padding-left:28px;
+      margin-top:14px;
+    }
+    .timeline::before{
+      content:"";position:absolute;top:8px;bottom:8px;left:5px;width:2px;
+      background:linear-gradient(180deg,
+        var(--ok) 0%,
+        var(--ok) 60%,
+        var(--warn) 75%,
+        var(--accent) 100%);
+      border-radius:2px;
+      opacity:.55;
+    }
+    .tl-item{
+      position:relative;padding:9px 0 9px 16px;
+      color:var(--text-dim);font-size:13px;
+    }
+    .tl-item::before{
+      content:"";position:absolute;left:-28px;top:14px;
+      width:12px;height:12px;border-radius:50%;
+      background:var(--accent);border:2px solid var(--bg);
+      box-shadow:0 0 0 2px var(--accent-glow);
+    }
+    .tl-item.done::before{
+      background:var(--ok);
+      box-shadow:0 0 0 2px rgba(74,222,128,.25);
+    }
+    .tl-item.paused::before{
+      background:var(--warn);
+      box-shadow:0 0 0 2px rgba(251,191,36,.25);
+    }
+    .tl-item strong{color:var(--text);font-weight:650}
+    .tl-date{
+      font-family:var(--mono);color:var(--muted);
+      font-size:11px;margin-right:10px;
+      display:inline-block;min-width:90px;
+    }
+
+    /* ==========================================================================
+       Lists
+       ========================================================================== */
+    ul{padding-left:20px;margin:6px 0 12px}
+    li{margin:5px 0;color:var(--text-dim);font-size:13px;line-height:1.55}
+    li::marker{color:var(--muted)}
+
+    /* ==========================================================================
+       Footnote
+       ========================================================================== */
+    .footnote{
+      color:var(--muted);font-size:11.5px;margin-top:14px;
+      font-style:italic;line-height:1.5;
+      padding-top:10px;border-top:1px dashed var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-logo">D</div>
+    <div class="brand-text">
+      <h1>System-Explorer · Backend unter der Motorhaube</h1>
+      <div class="sub">Stand 2026-10 (Open-Source-Basis) · hand-kuriert, nicht auto-generiert · Forschungswerkzeug, keine Anlageberatung</div>
+    </div>
+  </div>
+  <a class="back-link" href="./index.html">← zurück zum Cockpit</a>
+</header>
+
+<nav class="toc" id="toc">
+  <a href="#uebersicht">Übersicht</a>
+  <a href="#pipeline">Daten-Pipeline</a>
+  <a href="#scoring">Scoring-Layer</a>
+  <a href="#scripts">Scripts &amp; Tools</a>
+  <a href="#daten">Daten-Artefakte</a>
+  <a href="#sim">Sim-Stack</a>
+  <a href="#tasks">Scheduled-Tasks</a>
+  <a href="#roadmap">Versions-Timeline</a>
+</nav>
+
+<main>
+
+<!-- ========================================================= -->
+<section id="uebersicht">
+  <h2>Übersicht · was hier alles läuft</h2>
+  <div class="lede">Das komplette System auf einen Blick. Eine Zahl pro Domäne, um die Masse sichtbar zu machen.</div>
+  <div class="grid-4">
+    <div class="kpi"><div class="n">10</div><div class="l">Scoring-Layer</div></div>
+    <div class="kpi"><div class="n">13</div><div class="l">SIM-Tickets (3✅ / 10⏸)</div></div>
+    <div class="kpi"><div class="n">9</div><div class="l">Datenquellen (Free-Stack)</div></div>
+    <div class="kpi"><div class="n">639</div><div class="l">Ticker im Universe (tools/universe.csv)</div></div>
+    <div class="kpi"><div class="n">5</div><div class="l">Cockpit-Blöcke</div></div>
+  </div>
+  <div class="footnote">Die rechte Spalte im Cockpit zeigt diese Zahlen nicht: genau darum gibt es diese Seite.</div>
+</section>
+
+<!-- ========================================================= -->
+<section id="pipeline">
+  <h2>Daten-Pipeline · von Quelle zu Trade</h2>
+  <div class="lede">Wie ein Setup von Rohdaten zu einem Signal-Kandidaten wird. Links fließen Daten rein, rechts fällt eine Entscheidung raus.</div>
+  <div class="pipeline">
+    <svg viewBox="0 0 1100 400" width="100%" height="380" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L9,3 z" fill="#5ba8ff"/>
+        </marker>
+        <style>
+          .box{fill:#161e28;stroke:#22303d;stroke-width:1.5;rx:6}
+          .src{fill:#0f1f2a;stroke:#4ade80}
+          .core{fill:#1a2332;stroke:#5ba8ff;stroke-width:2}
+          .out{fill:#2a1f0f;stroke:#fbbf24}
+          .cock{fill:#10201b;stroke:#4ade80;stroke-width:2}
+          .txt{fill:#e8eef5;font-family:'Inter',sans-serif;font-size:12px}
+          .lbl{fill:#6d7f93;font-family:'Inter',sans-serif;font-size:10.5px}
+          .flow{stroke:#5ba8ff;stroke-width:1.5;fill:none;marker-end:url(#arrow);opacity:.75}
+          .sub{fill:#a9b8c8;font-family:'SF Mono',monospace;font-size:10px}
+        </style>
+      </defs>
+
+      <!-- Quellen -->
+      <g>
+        <rect class="box src" x="10" y="20" width="170" height="34"/>
+        <text class="txt" x="20" y="42">yfinance (OHLCV)</text>
+        <rect class="box src" x="10" y="60" width="170" height="34"/>
+        <text class="txt" x="20" y="82">SEC EDGAR (Form 4)</text>
+        <rect class="box src" x="10" y="100" width="170" height="34"/>
+        <text class="txt" x="20" y="122">Scraper (opt-in)</text>
+        <rect class="box src" x="10" y="140" width="170" height="34"/>
+        <text class="txt" x="20" y="162">CBOE (PCR): <tspan fill="#f87171">403</tspan></text>
+        <rect class="box src" x="10" y="180" width="170" height="34"/>
+        <text class="txt" x="20" y="202">yfinance option_chain</text>
+        <rect class="box src" x="10" y="220" width="170" height="34"/>
+        <text class="txt" x="20" y="242">yfinance (Premarket)</text>
+        <rect class="box src" x="10" y="260" width="170" height="34"/>
+        <text class="txt" x="20" y="282">earnings_calendar</text>
+        <rect class="box src" x="10" y="300" width="170" height="34"/>
+        <text class="txt" x="20" y="322">^TNX / DXY (yfinance)</text>
+        <text class="lbl" x="10" y="360">nur Free-Stack · Scraper opt-in · Nutzungsbedingungen der Anbieter beachten</text>
+      </g>
+
+      <!-- Tools-Layer -->
+      <g>
+        <rect class="box" x="230" y="20" width="200" height="34"/>
+        <text class="txt" x="240" y="42">tools/daily_scanner.py</text>
+        <rect class="box" x="230" y="60" width="200" height="34"/>
+        <text class="txt" x="240" y="82">tools/insider_feed.py</text>
+        <rect class="box" x="230" y="100" width="200" height="34"/>
+        <text class="txt" x="240" y="122">insider_feed.py (opt-in)</text>
+        <rect class="box" x="230" y="140" width="200" height="34"/>
+        <text class="txt" x="240" y="162">tools/options_flow.py</text>
+        <rect class="box" x="230" y="180" width="200" height="34"/>
+        <text class="txt" x="240" y="202">tools/regime_gate.py</text>
+        <rect class="box" x="230" y="220" width="200" height="34"/>
+        <text class="txt" x="240" y="242">tools/premarket_scanner.py</text>
+        <rect class="box" x="230" y="260" width="200" height="34"/>
+        <text class="txt" x="240" y="282">tools/earnings_calendar.py</text>
+        <rect class="box" x="230" y="300" width="200" height="34"/>
+        <text class="txt" x="240" y="322">tools/data_health.py</text>
+      </g>
+
+      <!-- Core -->
+      <g>
+        <rect class="box core" x="480" y="100" width="200" height="120"/>
+        <text class="txt" x="490" y="125" style="font-weight:600">Scoring-Engine</text>
+        <text class="sub" x="490" y="145">V6.8 · Gate-Score</text>
+        <text class="sub" x="490" y="162">4 Layer aus (Ablation)</text>
+        <text class="sub" x="490" y="179">+ Regime-Gate</text>
+        <text class="sub" x="490" y="196">Output: pre_score</text>
+        <text class="sub" x="490" y="213">threshold 7.5</text>
+      </g>
+
+      <!-- Decision -->
+      <g>
+        <rect class="box out" x="730" y="20" width="200" height="50"/>
+        <text class="txt" x="740" y="42" style="font-weight:600">Scan 08:00 + Gate</text>
+        <text class="sub" x="740" y="60">Kandidaten zur Prüfung</text>
+
+        <rect class="box out" x="730" y="90" width="200" height="50"/>
+        <text class="txt" x="740" y="112" style="font-weight:600">Tradability-Split</text>
+        <text class="sub" x="740" y="130">direct / hebel_watch</text>
+
+        <rect class="box out" x="730" y="160" width="200" height="50"/>
+        <text class="txt" x="740" y="182" style="font-weight:600">Paper-Bot oder manuell</text>
+        <text class="sub" x="740" y="200">nur nach deiner Freigabe</text>
+
+        <rect class="box" x="730" y="230" width="200" height="40"/>
+        <text class="txt" x="740" y="252">trade_journal.sqlite</text>
+
+        <rect class="box out" x="730" y="290" width="200" height="50"/>
+        <text class="txt" x="740" y="312" style="font-weight:600">Abend-Exit-Review</text>
+        <text class="sub" x="740" y="330">DD / KPI-Check</text>
+      </g>
+
+      <!-- Cockpit -->
+      <g>
+        <rect class="box cock" x="970" y="100" width="120" height="120"/>
+        <text class="txt" x="980" y="125" style="font-weight:600">Cockpit V7</text>
+        <text class="sub" x="980" y="145">dashboard/v7</text>
+        <text class="sub" x="980" y="162">5 Blöcke</text>
+        <text class="sub" x="980" y="179">Pull 30-60s</text>
+      </g>
+
+      <!-- Flows -->
+      <path class="flow" d="M180 37 L230 37"/>
+      <path class="flow" d="M180 77 L230 77"/>
+      <path class="flow" d="M180 117 L230 117"/>
+      <path class="flow" d="M180 157 L230 157"/>
+      <path class="flow" d="M180 197 L230 197"/>
+      <path class="flow" d="M180 237 L230 237"/>
+      <path class="flow" d="M180 277 L230 277"/>
+      <path class="flow" d="M180 317 L230 317"/>
+
+      <path class="flow" d="M430 37 C460 37 460 110 480 130"/>
+      <path class="flow" d="M430 77 C460 77 460 120 480 140"/>
+      <path class="flow" d="M430 117 C460 117 460 140 480 150"/>
+      <path class="flow" d="M430 157 C460 157 460 160 480 160"/>
+      <path class="flow" d="M430 197 C460 197 460 170 480 170"/>
+      <path class="flow" d="M430 237 C460 237 460 180 480 180"/>
+      <path class="flow" d="M430 277 C460 277 460 190 480 190"/>
+      <path class="flow" d="M430 317 C460 317 460 200 480 200"/>
+
+      <path class="flow" d="M680 130 C710 130 710 45 730 45"/>
+      <path class="flow" d="M680 150 C710 150 710 115 730 115"/>
+      <path class="flow" d="M680 170 C710 170 710 185 730 185"/>
+      <path class="flow" d="M680 190 C710 190 710 250 730 250"/>
+      <path class="flow" d="M680 210 C710 210 710 315 730 315"/>
+
+      <path class="flow" d="M680 160 L970 160"/>
+      <path class="flow" d="M930 250 C950 250 960 200 970 200"/>
+    </svg>
+  </div>
+  <div class="legend">
+    <span><span class="sw" style="background:#0f1f2a;border:1px solid #4ade80"></span> externe Datenquelle</span>
+    <span><span class="sw" style="background:#161e28;border:1px solid #22303d"></span> internes Tool</span>
+    <span><span class="sw" style="background:#1a2332;border:1px solid #5ba8ff"></span> Core-Engine</span>
+    <span><span class="sw" style="background:#2a1f0f;border:1px solid #fbbf24"></span> Output / Entscheidung</span>
+    <span><span class="sw" style="background:#10201b;border:1px solid #4ade80"></span> Cockpit</span>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<section id="scoring">
+  <h2>Scoring-Layer · V6.8 (10 aktive Einflüsse)</h2>
+  <div class="lede">Jeder Layer modifiziert den <code>pre_score</code>; der Score ist ein Gate (Schwelle je Ticker, typisch 7,5 bis 9,0), kein Ranking. Die Layer-Ablation (siehe <code>H2-Layer-Ablation-Runbook.md</code>) fand für News, Options-Flow, Insider und Market-PCR keinen messbaren Edge, diese Layer sind abgeschaltet (<code>daily_scanner.DISABLED_LAYERS</code>).</div>
+  <table>
+    <thead><tr><th>Layer</th><th>Version</th><th>Wirkt auf</th><th>Range</th><th>Status</th><th>Audit-Notiz</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Base</strong> · SMA5 + ATR-Stops</td><td>V6</td><td>Trigger</td><td>0-10</td><td><span class="pill pill-ok">tragend</span></td><td>Kern des Setups</td></tr>
+      <tr><td><strong>E1</strong> Earnings-Blackout</td><td>V6.3</td><td>Veto</td><td>0 / Skip</td><td><span class="pill pill-ok">tragend</span></td><td>billig, Tail-Schutz</td></tr>
+      <tr><td><strong>E2</strong> Cum-RSI</td><td>V6.3</td><td>Confluence</td><td>±0,20</td><td><span class="pill pill-warn">zu prüfen</span></td><td>redundant mit E3 + Connors?</td></tr>
+      <tr><td><strong>E3</strong> Pullback-Strength</td><td>V6.3</td><td>Confluence</td><td>±0,30</td><td><span class="pill pill-warn">zu prüfen</span></td><td>MR-Signal, Kollinearität</td></tr>
+      <tr><td><strong>E4</strong> Pre-Market-Gap</td><td>V6.4</td><td>Timing</td><td>±0,20</td><td><span class="pill pill-ok">aktiv</span></td><td>08:45 CET scan</td></tr>
+      <tr><td><strong>E5</strong> Sektor-RS</td><td>V6.4</td><td>Confluence</td><td>±0,30</td><td><span class="pill pill-ok">aktiv</span></td><td>GICS-Mapping</td></tr>
+      <tr><td><strong>E6</strong> Bullish-Confirmed</td><td>V6.3</td><td>Trigger-Fix</td><td>Toggle</td><td><span class="pill pill-ok">aktiv</span></td><td>Bug-Fix, nicht gescort</td></tr>
+      <tr><td><strong>E7F</strong> Insider + Congress</td><td>V6.7</td><td>Confluence</td><td>±0,20</td><td><span class="pill pill-bad">aus</span></td><td>abgeschaltet nach Ablation (kein messbarer Edge)</td></tr>
+      <tr><td><strong>E8</strong> MTF (Weekly + H1)</td><td>V6.6</td><td>Confluence</td><td>±0,30</td><td><span class="pill pill-ok">aktiv</span></td><td>Weekly-Trend + H1</td></tr>
+      <tr><td><strong>E9</strong> Live-Journal</td><td>V6.5</td><td>Reporting</td><td>-</td><td><span class="pill pill-ok">passiv</span></td><td>KPI-Output, nicht Score</td></tr>
+      <tr><td><strong>E10F</strong> Options-Flow</td><td>V6.8</td><td>Confluence</td><td>±0,20 per-Ticker</td><td><span class="pill pill-bad">aus</span></td><td>abgeschaltet nach Ablation (informativ weiter erzeugt)</td></tr>
+      <tr><td><strong>E10F</strong> Market-PCR-Tilt</td><td>V6.8</td><td>Markt-Tilt</td><td>±0,10 global</td><td><span class="pill pill-bad">aus</span></td><td>abgeschaltet nach Ablation; CBOE-Quelle instabil</td></tr>
+      <tr><td><strong>Regime-Gate</strong></td><td>V6</td><td>Size-Multiplier</td><td>0,00-1,00 ×</td><td><span class="pill pill-ok">aktiv</span></td><td>fehlen VIX/SPY: status degraded, kein Trade</td></tr>
+    </tbody>
+  </table>
+  <div class="footnote">Status „zu prüfen" = Kandidat für weitere Ablation-Tests.</div>
+</section>
+
+<!-- ========================================================= -->
+<section id="scripts">
+  <h2>Scripts &amp; Tools · was wo lebt</h2>
+  <div class="lede">Alle Python-Files im Repo mit 1-Liner-Erklärung. Nicht erschöpfend, aber die täglichen Eckpfeiler.</div>
+
+  <h3>tools/: Daten-Pipelines und Scheduled-Task-Einstiege</h3>
+  <table>
+    <thead><tr><th>Datei</th><th>Zweck</th><th>Getriggert wann</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">run_morning_pipeline.py</td><td>Orchestrator: Regime, Sektor-RS, Scan, Rescore, Momentum-Watch, Earnings, Pre-Market, informativ Insider + Options-Flow</td><td>Mo-Fr 08:00 + Catch-up (launchd)</td></tr>
+      <tr><td class="mono">daily_scanner.py</td><td>Kernscanner, Universe → Scoring → Top-Setups</td><td>über die Morgen-Pipeline</td></tr>
+      <tr><td class="mono">regime_gate.py</td><td>VIX/SPY/ADX → Regime-Klasse + Size-Multiplier</td><td>über die Morgen-Pipeline</td></tr>
+      <tr><td class="mono">earnings_calendar.py</td><td>Earnings-Blackout-Liste</td><td>über die Morgen-Pipeline</td></tr>
+      <tr><td class="mono">insider_feed.py</td><td>Insider/Congress (SEC EDGAR, Scraper opt-in)</td><td>über die Morgen-Pipeline (informativ)</td></tr>
+      <tr><td class="mono">options_flow.py</td><td>yfinance option_chain + CBOE PCR</td><td>über die Morgen-Pipeline (informativ)</td></tr>
+      <tr><td class="mono">premarket_scanner.py</td><td>Pre-Market-Gap-Scanner</td><td>über die Morgen-Pipeline</td></tr>
+      <tr><td class="mono">data_health.py</td><td>Findet stille Degradationen, schreibt Auto-Tickets</td><td>nach dem Scan, vor dem Gate</td></tr>
+      <tr><td class="mono">adjudication_gate.py</td><td>No-Trade-Gate bei schlechter Datenqualitaet</td><td>vor jeder Adjudikation</td></tr>
+      <tr><td class="mono">evening_exit_tracking.py</td><td>Abend-Exit-Review offener Positionen (exit_engine)</td><td>abends, manuell oder eigener Scheduler</td></tr>
+      <tr><td class="mono">trade_journal.py · quick_trade.py</td><td>SQLite-Journal + CLI</td><td>Auf Abruf</td></tr>
+      <tr><td class="mono">exec_bot.py</td><td>Deterministischer Paper-Order-Bot (Alpaca Paper, Freigabe pro Ticker)</td><td>Auf Abruf</td></tr>
+      <tr><td class="mono">dashboard_api.py</td><td>V7 Flask-Steuerung · Port 5757 (nur 127.0.0.1)</td><td>Auf Abruf (bleibt offen)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>sim/: Simulations-Stack (Welle A fertig)</h3>
+  <table>
+    <thead><tr><th>Datei</th><th>Zweck</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">sim/bootstrap.py</td><td>Block-Bootstrap-CI für WR/PF/Sharpe/MaxDD</td><td><span class="pill pill-ok">SIM-1 done</span></td></tr>
+      <tr><td class="mono">sim/monte_carlo.py</td><td>MC-Pfad-Resampling, 2 Ensembles</td><td><span class="pill pill-ok">SIM-2 done</span></td></tr>
+      <tr><td class="mono">sim/costs.py</td><td>Slippage+Spread Bucket-Modell</td><td><span class="pill pill-ok">SIM-3 done</span></td></tr>
+      <tr><td class="mono">sim/factors.py <em>(geplant)</em></td><td>Fama-French 3F/5F Regression</td><td><span class="pill pill-warn">SIM-4 paused</span></td></tr>
+      <tr><td class="mono">sim/risk.py</td><td>VaR + CVaR (historisch, Student-t, MC)</td><td><span class="pill pill-ok">SIM-5 done</span></td></tr>
+      <tr><td class="mono">sim/tca.py <em>(geplant)</em></td><td>Transaction Cost Analysis</td><td><span class="pill pill-warn">SIM-6 paused</span></td></tr>
+      <tr><td class="mono">sim/regime_hmm.py <em>(geplant)</em></td><td>3-State-GaussianHMM</td><td><span class="pill pill-warn">SIM-7 paused</span></td></tr>
+      <tr><td class="mono">sim/stress.py <em>(geplant)</em></td><td>Historische Krisen-Replays</td><td><span class="pill pill-warn">SIM-8 paused</span></td></tr>
+      <tr><td class="mono">sim/sensitivity.py <em>(geplant)</em></td><td>Scoring-Gewichte Grid-Sweep</td><td><span class="pill pill-warn">SIM-9 paused</span></td></tr>
+      <tr><td class="mono">sim/ml_challenger.py <em>(geplant)</em></td><td>XGBoost Regel-vs-ML</td><td><span class="pill pill-warn">SIM-11 paused</span></td></tr>
+      <tr><td class="mono">tools/layer_ablation.py</td><td>Layer-Ablation (H2): jeder Layer einzeln an/aus</td><td><span class="pill pill-ok">done</span></td></tr>
+    </tbody>
+  </table>
+  <div class="footnote">Paused/geplant = noch nicht implementiert.</div>
+
+  <h3>backtest/: historische Engine</h3>
+  <table>
+    <tbody>
+      <tr><td class="mono">backtest/backtest_engine.py</td><td>V1-Backtest 1997 bis 2026 (hypothetisch), Pauschal-Kosten pro Order konfigurierbar</td></tr>
+      <tr><td class="mono">backtest/results_v1/*.parquet</td><td>Trade-Outputs, Input für alle SIM-Tools</td></tr>
+    </tbody>
+  </table>
+
+  <h3>dashboard/: Frontends</h3>
+  <table>
+    <tbody>
+      <tr><td class="mono">dashboard/v7/index.html</td><td>V7 Live-Cockpit (dies hier ist sein Bruder)</td></tr>
+      <tr><td class="mono">dashboard/v7/state.json</td><td>Kill-Switch + DD-Level (lokal, gitignored, beim ersten Start aus state.example.json erzeugt)</td></tr>
+      <tr><td class="mono">dashboard/v7/heartbeat.json</td><td>Letzte Task-Ausführung</td></tr>
+      <tr><td class="mono">dashboard/v7/trades_snapshot.json</td><td>Projection aus trade_journal.sqlite</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========================================================= -->
+<section id="daten">
+  <h2>Daten-Artefakte · tägliche JSONs + SQLite</h2>
+  <div class="lede">Jeden Morgen/Abend entstehen diese Dateien (lokal, gitignored). Das Cockpit konsumiert sie.</div>
+  <table>
+    <thead><tr><th>Datei</th><th>Kernfelder</th><th>Frequenz</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">tools/scan_YYYY-MM-DD.json</td><td><code>top_setups[]</code>, <code>market_pcr_adjust</code>, <code>ticker_map</code>, <code>universe_size</code></td><td>täglich (Morgen-Pipeline)</td></tr>
+      <tr><td class="mono">tools/regime_YYYY-MM-DD.json</td><td><code>regime</code>, <code>status</code>, <code>size_multiplier</code>, <code>metrics{vix,adx_spy,...}</code></td><td>täglich (Morgen-Pipeline)</td></tr>
+      <tr><td class="mono">tools/data_health_YYYY-MM-DD.json</td><td><code>overall_status</code>, <code>sources{}</code>, <code>findings[]</code></td><td>bei Bedarf (vor dem Gate)</td></tr>
+      <tr><td class="mono">tools/premarket_YYYY-MM-DD.json</td><td><code>alerts[]</code>, <code>total_scanned</code></td><td>täglich (Morgen-Pipeline)</td></tr>
+      <tr><td class="mono">tools/options_flow_YYYY-MM-DD.json</td><td><code>market_pcr</code>, <code>ticker_map</code>, <code>sources</code></td><td>täglich (Morgen-Pipeline, informativ)</td></tr>
+      <tr><td class="mono">tools/insider_YYYY-MM-DD.json</td><td><code>ticker_map</code>, <code>n_flagged</code>, <code>edgar_shadow</code></td><td>täglich (Morgen-Pipeline, informativ)</td></tr>
+      <tr><td class="mono">tools/earnings_YYYY-MM-DD.json</td><td><code>blackout_tickers[]</code>, <code>blackout_count</code></td><td>täglich (Morgen-Pipeline)</td></tr>
+      <tr><td class="mono">sim/_reports/bootstrap_ci_YYYY-MM-DD.json</td><td><code>point_estimates</code>, <code>bootstrap_ci</code>, <code>gate</code></td><td>on-demand</td></tr>
+      <tr><td class="mono">sim/_reports/monte_carlo_YYYY-MM-DD.json</td><td><code>trade_mc</code>, <code>daily_mc</code>, <code>gate</code></td><td>on-demand</td></tr>
+      <tr><td class="mono">trade_journal.sqlite</td><td>4 Tabellen: <code>trades</code>, <code>regime_snapshots</code>, <code>rule_violations</code>, <code>daily_equity</code></td><td>rollierend</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========================================================= -->
+<section id="sim">
+  <h2>Sim-Stack · Wellen A bis D</h2>
+  <div class="lede">Welle A ist gebaut. B/C/D sind <em>bewusst pausiert</em>. Alle Backtest-Kennzahlen im Repository sind hypothetisch.</div>
+  <div class="grid-2">
+    <div class="node">
+      <div class="node-title">Welle A · Foundations <span class="pill pill-ok">3/3 done</span></div>
+      <div class="node-body">SIM-1 Bootstrap-CI · SIM-2 Monte-Carlo · SIM-3 Cost-Model. Liefert Konfidenzintervalle und realistischere Kosten für die hypothetischen Backtests.</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Welle B · Faktoren &amp; Risk <span class="pill pill-warn">0/3 paused</span></div>
+      <div class="node-body">SIM-4 Fama-French · SIM-5 VaR+CVaR · SIM-6 TCA. Erst wenn Ablation zeigt, dass Edge real ist.</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Welle C · Regime &amp; Stress <span class="pill pill-warn">0/4 paused</span></div>
+      <div class="node-body">SIM-7 HMM-Regime · SIM-8 Stress-Suite · SIM-9 Sensitivity-Sweep · SIM-10 Event-Backtester (optional).</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Welle D · ML-Challenger <span class="pill pill-warn">0/3 paused</span></div>
+      <div class="node-body">SIM-11 XGBoost vs Regel · SIM-12 Purged-CV · SIM-13 Weekly-Challenger-Report.</div>
+    </div>
+  </div>
+  <div class="footnote">Pausiert ≠ gestrichen.</div>
+</section>
+
+<!-- ========================================================= -->
+<section id="tasks">
+  <h2>Scheduled-Tasks · wer wann läuft</h2>
+  <div class="lede">Zeitplan aus <code>tools/install_launchd_crons.sh</code> (macOS, CET). Mit <code>--dry-run</code> erst prüfen. Kill-Switch in <code>state.json</code> kann alles pausieren.</div>
+  <table>
+    <thead><tr><th>Zeit (CET)</th><th>Task</th><th>Skript</th><th>Schreibt</th></tr></thead>
+    <tbody>
+      <tr><td>Mo-Fr 06:30</td><td>News-Sentiment (informativ)</td><td class="mono">news_sentiment_fetch.py</td><td>news_sentiment_*.json</td></tr>
+      <tr><td>Mo-Fr 08:00</td><td>Morgen-Pipeline (Regime, Sektor-RS, Scan, Earnings, Premarket, ...)</td><td class="mono">run_morning_pipeline.py</td><td>regime_*.json, scan_*.json, ...</td></tr>
+      <tr><td>Mo-Fr 08:15 / 08:45 / 09:15 / 10:30</td><td>Catch-up der Morgen-Pipeline (No-op, wenn der Scan schon da ist)</td><td class="mono">run_morning_pipeline.py</td><td>nur bei verpasstem 08:00-Lauf</td></tr>
+      <tr><td>Mo 09:45</td><td>Gatekeeper (Wochen-Tripwire, Shadow-Backfill)</td><td class="mono">observation_gatekeeper.py</td><td>Reports (lokal)</td></tr>
+      <tr><td>So 20:00</td><td>Catalyst-Kalender</td><td class="mono">catalyst_calendar.py</td><td>Briefings/Catalyst-*.md</td></tr>
+      <tr><td>nach dem Scan</td><td>Data-Health-Audit + No-Trade-Gate (manuell)</td><td class="mono">data_health.py, adjudication_gate.py</td><td>data_health_*.json, signals/adjudication_gate_*.json</td></tr>
+      <tr><td>optional</td><td>Paper-Bot: Plan, Freigabe, Run</td><td class="mono">exec_bot.py</td><td>signals/exec_bot_*.json</td></tr>
+      <tr><td>abends (manuell)</td><td>Abend-Exit-Tracking</td><td class="mono">evening_exit_tracking.py</td><td>signals/evening_exit_*.json</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========================================================= -->
+<section id="roadmap">
+  <h2>Versions-Timeline · woher wir kommen, wohin</h2>
+  <div class="lede">Alle Major-Milestones. Grün = fertig, gelb = pausiert/in Arbeit, blau = offen.</div>
+  <div class="timeline">
+    <div class="tl-item done"><span class="tl-date">vor 2026-04</span><strong>V6.0 Base</strong> · SMA5 + ATR · 440 hypothetische Backtest-Trades als Forschungs-Korpus</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-15</span><strong>V6.3</strong> · E1 Earnings-Blackout, E2 Cum-RSI, E3 Pullback, E6 Bullish-Fix</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-15</span><strong>V6.4</strong> · E4 Pre-Market-Gap, E5 Sektor-RS</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-15</span><strong>V6.5</strong> · E9 Live-Journal + Metriken-Dashboard</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-15</span><strong>V6.6</strong> · E8 Multi-Timeframe (Weekly+H1)</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-15</span><strong>V6.7</strong> · E7F Insider/Congress Free-Stack</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-15</span><strong>V6.8</strong> · E10F Options-Flow + Market-PCR</div>
+    <div class="tl-item paused"><span class="tl-date">2026-04-15→29</span><strong>V6.8 Beobachtungsfenster</strong> · Feature-Freeze</div>
+    <div class="tl-item paused"><span class="tl-date">2026-04-15</span><strong>V6.8.1 Shadow-Mode</strong> · OI-Cache + SEC-EDGAR · PAUSIERT nach SIMPLIFY-5</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-16</span><strong>V6.9 Data-Health-Monitor</strong> · Auto-Tickets + Dedup</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-16</span><strong>V6.10 Dashboard</strong> · statischer HTML-Spiegel</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-16</span><strong>V7 Welle A Sim</strong> · SIM-1/2/3 gebaut (Bootstrap, Monte Carlo, Kostenmodell)</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-16</span><strong>Komplexitäts-Audit</strong> · 7 SIMPLIFY-Tickets · Kurs: „vertiefen statt verbreitern"</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-16</span><strong>V7 Cockpit Dashboard</strong> · Phase 1+2 (Live-HTML + Flask-Steuerung)</div>
+    <div class="tl-item done"><span class="tl-date">2026-04-17</span><strong>DASH-4a Smart-SELL + Auto-Sync</strong> · Trade-Log Lücken geschlossen</div>
+    <div class="tl-item done"><span class="tl-date">2026-05/06</span><strong>Layer-Ablation (H2)</strong> · News, Options-Flow, Insider, Market-PCR ohne messbaren Edge, abgeschaltet</div>
+    <div class="tl-item"><span class="tl-date">KW17</span><strong>SIMPLIFY-6 Morgen-1-Pager</strong> + SIMPLIFY-7 DD-Protokoll</div>
+    <div class="tl-item done"><span class="tl-date">2026-07</span><strong>Paper-Bot</strong> · exec_bot.py + Alpaca Paper, Live doppelt gesperrt</div>
+    <div class="tl-item done"><span class="tl-date">2026-10</span><strong>Open-Source-Basis</strong> · offline Testsuite, Doku, AGPL-3.0</div>
+    <div class="tl-item"><span class="tl-date">später</span><strong>V7 Sim-Welle B/C/D</strong> · oder nicht: hängt von Ablation ab</div>
+  </div>
+</section>
+
+<div class="footnote" style="margin-top:24px">Forschungswerkzeug, keine Anlage- oder Steuerberatung und keine Anlageempfehlung. Alle Backtest-Ergebnisse sind hypothetisch. Siehe <code>DISCLAIMER.md</code>.</div>
+</main>
+
+<script>
+/* =========================================================================
+   Scroll-Spy · markiert den TOC-Eintrag der sichtbaren Section
+   ========================================================================= */
+(function(){
+  const links = Array.from(document.querySelectorAll('nav.toc a'));
+  const map = new Map();
+  links.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const sec = document.getElementById(id);
+    if (sec) map.set(sec, a);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    // Nimm die Section mit dem höchsten intersectionRatio, die intersecting ist
+    let best = null;
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+      }
+    });
+    if (best) {
+      links.forEach(l => l.classList.remove('active'));
+      const a = map.get(best.target);
+      if (a) a.classList.add('active');
+    }
+  }, {
+    rootMargin: '-160px 0px -55% 0px',
+    threshold: [0.05, 0.25, 0.5, 0.75]
+  });
+
+  map.forEach((_, sec) => io.observe(sec));
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+# daily-invest-oss: core runtime dependencies (Python 3.9 or newer)
+# Install:  python3 -m pip install -r requirements.txt
+# Optional heavy extras (sentiment models, HMM, Reddit, MCP): requirements-optional.txt
+# Test tooling: requirements-dev.txt
+#
+# Upper bounds keep the next major release out until it is tested. The offline suite
+# passed with the newest allowed majors on Python 3.9 and 3.12 (October 2026).
+# Raise a bound in a pull request once the suite passes with the new major.
+
+numpy>=1.24,<3
+pandas>=2.0,<4
+yfinance>=0.2.40,<2       # end-of-day prices, options chains (Yahoo terms apply)
+certifi>=2023.7.22        # CA bundle pinning used by the scanner env guard
+requests>=2.31,<3
+# Apple's /usr/bin/python3 (3.9) is built against LibreSSL, and urllib3 2.x prints a
+# NotOpenSSLWarning on every import there. urllib3 1.26 avoids that warning on 3.9.
+urllib3>=1.26,<2; python_version < "3.10"
+urllib3>=1.26,<3; python_version >= "3.10"
+scipy>=1.10,<2            # sim/risk.py (Student-t VaR)
+pandas-datareader>=0.10,<1  # Stooq fallback in tools/data_source_orchestrator.py
+flask>=3.0,<4             # tools/dashboard_api.py (local cockpit API)
+pyarrow>=14.0             # parquet I/O (data lake, backtests, price lookups); frequent majors, stable parquet API
+duckdb>=0.10,<2           # tools/lake_smoke.py, backtest/scientific_addendum.py
+matplotlib>=3.7,<4        # backtest and simulation charts

@@ -1,0 +1,12 @@
+# Optional ticker exclusion list (empty by default).
+#
+# Copy this file to config/blacklist.txt and add one ticker per line.
+# Tickers listed there are removed from the scanner top setups, the momentum
+# watch, the gating attribution and the paper execution bot.
+# config/blacklist.txt is gitignored, so your personal list stays local.
+#
+# Alternative: export DAILYINVEST_BLACKLIST="AAA,BBB"
+#
+# Example entries (synthetic placeholders, remove the leading '#' to use):
+# AAA
+# BBB

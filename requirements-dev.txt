@@ -1,0 +1,4 @@
+# daily-invest-oss: development and test dependencies
+# Install:  python3 -m pip install -r requirements-dev.txt
+-r requirements.txt
+pytest>=7.4,<10
